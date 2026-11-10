@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-11-10T08:24:33.977Z",
+        "reason": "model: decision-round sketch; flagged wrappers hold padded table cells / a vertically centred bar, not flush text"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-11-10T08:24:33.994Z",
+        "reason": "model: decision-round sketch; flagged wrappers hold padded table cells / a vertically centred bar, not flush text"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-11-10T09:03:24.256Z",
+        "reason": "model: spent decision-round sketch, not shipping code; predates DESIGN.md"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-11-10T09:03:24.274Z",
+        "reason": "model: spent decision-round sketch, not shipping code; predates DESIGN.md"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-gateboard.html"
+        ],
+        "createdAt": "2026-11-10T09:03:24.294Z",
+        "reason": "model: spent decision-round sketch, not shipping code; predates DESIGN.md"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-11-10T09:03:24.311Z",
+        "reason": "model: spent decision-round sketch, not shipping code; predates DESIGN.md"
+      }
+    ]
+  }
+}

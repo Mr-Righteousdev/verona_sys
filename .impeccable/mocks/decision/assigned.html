@@ -1,0 +1,85 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Signwriting</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#16348f;--paint-red:#d7261e;--yellow:#f4c20d;--ink:#111;--ground:#e9ecf2;--white:#fff;
+--c1:#1a5fb4;--c2:#7b2d8e;--c3:#b9470f;--c4:#0f7a3d;--c5:#0b6f71;--c6:#7f5a00;--c7:#a3324a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;font-family:'Atkinson Hyperlegible',sans-serif;color:var(--ink);background:var(--ground);display:flex}
+.disp{font-family:Archivo;font-stretch:68%;font-weight:850;text-transform:uppercase;letter-spacing:.01em}
+aside{width:248px;background:var(--board);color:#fff;padding:24px 0;display:flex;flex-direction:column}
+.crest{margin:0 20px 28px;border:2px solid #fff;padding:12px 14px}
+.crest .disp{font-size:28px;line-height:.95}.crest small{display:block;font-size:12px;margin-top:6px;color:#c9d3f2}
+nav a{display:flex;justify-content:space-between;padding:11px 20px;color:#fff;text-decoration:none;font-size:15px}
+nav a.on{background:var(--yellow);color:var(--ink);font-weight:700}
+nav a b{font-weight:700;background:var(--paint-red);color:#fff;padding:0 7px;font-size:13px}
+.who{margin-top:auto;padding:16px 20px;border-top:1px solid #3d58ad;font-size:14px}
+main{flex:1;padding:28px 36px;display:grid;grid-template-columns:1fr 340px;gap:28px;grid-template-rows:auto 1fr}
+header{grid-column:1/-1;display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:14px}
+header h1{font-size:54px;line-height:.9}header p{font-size:15px;color:#444;margin-top:6px}
+.btn{font:700 15px 'Atkinson Hyperlegible';padding:11px 18px;border:2px solid var(--ink);background:var(--yellow)}
+.boards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-content:start}
+.sign{background:#fff;border:2px solid var(--ink);display:flex;flex-direction:column;position:relative}
+.sign .stripes{position:absolute;right:-2px;top:-2px;bottom:-2px;width:14px;display:flex;flex-direction:column;gap:3px;padding:0}
+.stripes i{flex:1;background:var(--paint-red)}
+.sign .name{padding:14px 26px 10px 14px}.sign .name .disp{font-size:30px;line-height:.95}
+.sign .name small{font-size:13px;color:#555}
+.sign .comp{color:#fff;padding:8px 14px;font-size:15px;font-weight:700}
+.sign .why{padding:10px 14px;font-size:14px;border-bottom:1px solid #ddd}
+.sign .do{padding:10px 14px 14px;font-size:14px;line-height:1.35}
+.sign .do b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.more{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--ink);padding-top:12px;font-size:15px}
+.side{display:flex;flex-direction:column;gap:22px}
+.panel{background:#fff;border:2px solid var(--ink)}
+.panel h2{font-size:22px;padding:10px 14px;border-bottom:1px solid var(--ink)}
+.row{display:flex;align-items:center;gap:10px;padding:8px 14px;font-size:14px;border-bottom:1px solid #e3e6ec}
+.row:last-child{border:0}.sw{width:14px;height:14px;flex:none}
+.bar{flex:1;height:10px;background:#eee}.bar i{display:block;height:100%}
+.n{width:26px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+</style></head><body>
+<aside>
+ <div class="crest"><div class="disp">Verona<br>High School</div><small>Competency early warning</small></div>
+ <nav>
+  <a class="on" href="#">Dashboard</a><a href="#">Alerts <b>47</b></a><a href="#">Learners</a><a href="#">Enter scores</a><a href="#">Attendance</a><a href="#">Reports</a>
+ </nav>
+ <div class="who">Mr. Kasozi Peter<br><span style="color:#c9d3f2">Class teacher · S1 East</span></div>
+</aside>
+<main>
+ <header><div><h1 class="disp">13 learners need you this week</h1><p>S1 East · Term 3 · updated 18:00 yesterday</p></div><button class="btn">Enter scores</button></header>
+ <section class="boards">
+  <article class="sign"><div class="stripes"><i></i><i></i><i></i></div>
+   <div class="name"><div class="disp">Timothy Achieng</div><small>S1 East · VHS/S1/012</small></div>
+   <div class="comp" style="background:var(--c3)">Creativity &amp; Imagination</div>
+   <div class="why">Average 1.00 over 5 tasks · benchmark 2.00</div>
+   <div class="do"><b>Do this</b>Give a small project with free choice of approach; pair with a creative peer.</div></article>
+  <article class="sign"><div class="stripes"><i></i><i></i><i></i></div>
+   <div class="name"><div class="disp">Sarah Kyomuhendo</div><small>S1 East · VHS/S1/009</small></div>
+   <div class="comp" style="background:var(--c1)">Communication &amp; Collaboration</div>
+   <div class="why">Average 1.40 · trend projects 1.00 next</div>
+   <div class="do"><b>Do this</b>Give a defined role in group work and ask them to report back to the class.</div></article>
+  <article class="sign"><div class="stripes"><i></i><i></i><i></i></div>
+   <div class="name"><div class="disp">Daniel Ssemwogerere</div><small>S1 East · VHS/S1/003</small></div>
+   <div class="comp" style="background:var(--c4)">Citizenship</div>
+   <div class="why">Average 1.33 over 3 tasks · attendance 62%</div>
+   <div class="do"><b>Do this</b>Involve in a class responsibility; discuss values one-to-one.</div></article>
+  <div class="more"><span>10 more open alerts in S1 East · 3 resolved this week</span><a href="#" style="color:var(--board);font-weight:700">See all alerts →</a></div>
+ </section>
+ <section class="side">
+  <div class="panel"><h2 class="disp">By competency</h2>
+   <div class="row"><span class="sw" style="background:var(--c5)"></span>Digital Literacy<span class="bar"><i style="width:100%;background:var(--c5)"></i></span><span class="n">13</span></div>
+   <div class="row"><span class="sw" style="background:var(--c1)"></span>Communication<span class="bar"><i style="width:62%;background:var(--c1)"></i></span><span class="n">8</span></div>
+   <div class="row"><span class="sw" style="background:var(--c3)"></span>Creativity<span class="bar"><i style="width:54%;background:var(--c3)"></i></span><span class="n">7</span></div>
+   <div class="row"><span class="sw" style="background:var(--c4)"></span>Citizenship<span class="bar"><i style="width:46%;background:var(--c4)"></i></span><span class="n">6</span></div>
+   <div class="row"><span class="sw" style="background:var(--c6)"></span>Learning to Learn<span class="bar"><i style="width:46%;background:var(--c6)"></i></span><span class="n">6</span></div>
+   <div class="row"><span class="sw" style="background:var(--c2)"></span>Critical Thinking<span class="bar"><i style="width:31%;background:var(--c2)"></i></span><span class="n">4</span></div>
+   <div class="row"><span class="sw" style="background:var(--c7)"></span>Self-Regulation<span class="bar"><i style="width:23%;background:var(--c7)"></i></span><span class="n">3</span></div>
+  </div>
+  <div class="panel"><h2 class="disp">By class</h2>
+   <div class="row">S2 East<span class="bar"><i style="width:100%;background:var(--board)"></i></span><span class="n">14</span></div>
+   <div class="row">S1 East<span class="bar"><i style="width:93%;background:var(--board)"></i></span><span class="n">13</span></div>
+   <div class="row">S2 West<span class="bar"><i style="width:86%;background:var(--board)"></i></span><span class="n">12</span></div>
+   <div class="row">S1 West<span class="bar"><i style="width:57%;background:var(--board)"></i></span><span class="n">8</span></div>
+  </div>
+ </section>
+</main>
+</body></html>

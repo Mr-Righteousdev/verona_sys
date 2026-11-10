@@ -1,0 +1,408 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T12:00:00Z",
+  "title": "Design System: Verona EWS",
+  "extensions": {
+    "colorMeta": {
+      "signboard-blue": {
+        "role": "primary",
+        "displayName": "Signboard Blue",
+        "canonical": "#16348f",
+        "tonalRamp": [
+          "oklch(15% 0.117 265)",
+          "oklch(26% 0.137 265)",
+          "oklch(38% 0.153 265)",
+          "oklch(49% 0.133 265)",
+          "oklch(61% 0.114 265)",
+          "oklch(72% 0.094 265)",
+          "oklch(84% 0.075 265)",
+          "oklch(95% 0.056 265)"
+        ]
+      },
+      "paint-yellow": {
+        "role": "secondary",
+        "displayName": "Sign Yellow",
+        "canonical": "#f4c20d",
+        "tonalRamp": [
+          "oklch(15% 0.042 90)",
+          "oklch(26% 0.063 90)",
+          "oklch(38% 0.084 90)",
+          "oklch(49% 0.105 90)",
+          "oklch(61% 0.127 90)",
+          "oklch(72% 0.148 90)",
+          "oklch(84% 0.169 90)",
+          "oklch(95% 0.148 90)"
+        ]
+      },
+      "paint-red": {
+        "role": "tertiary",
+        "displayName": "Warning Red",
+        "canonical": "#c41e17",
+        "tonalRamp": [
+          "oklch(15% 0.117 29)",
+          "oklch(26% 0.142 29)",
+          "oklch(38% 0.167 29)",
+          "oklch(49% 0.192 29)",
+          "oklch(61% 0.182 29)",
+          "oklch(72% 0.157 29)",
+          "oklch(84% 0.132 29)",
+          "oklch(95% 0.107 29)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(26% 0.000 90)",
+          "oklch(38% 0.000 90)",
+          "oklch(49% 0.000 90)",
+          "oklch(61% 0.000 90)",
+          "oklch(72% 0.000 90)",
+          "oklch(84% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "board-white": {
+        "role": "neutral",
+        "displayName": "Board White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(26% 0.000 90)",
+          "oklch(38% 0.000 90)",
+          "oklch(49% 0.000 90)",
+          "oklch(61% 0.000 90)",
+          "oklch(72% 0.000 90)",
+          "oklch(84% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "wall-grey": {
+        "role": "neutral",
+        "displayName": "Wall Grey",
+        "canonical": "#e9ecf2",
+        "tonalRamp": [
+          "oklch(15% 0.001 265)",
+          "oklch(26% 0.002 265)",
+          "oklch(38% 0.003 265)",
+          "oklch(49% 0.004 265)",
+          "oklch(61% 0.005 265)",
+          "oklch(72% 0.007 265)",
+          "oklch(84% 0.008 265)",
+          "oklch(95% 0.009 265)"
+        ]
+      },
+      "rule-grey": {
+        "role": "neutral",
+        "displayName": "Rule Grey",
+        "canonical": "#d3d8e2",
+        "tonalRamp": [
+          "oklch(15% 0.003 264)",
+          "oklch(26% 0.005 264)",
+          "oklch(38% 0.007 264)",
+          "oklch(49% 0.008 264)",
+          "oklch(61% 0.010 264)",
+          "oklch(72% 0.012 264)",
+          "oklch(84% 0.014 264)",
+          "oklch(95% 0.014 264)"
+        ]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#4a5160",
+        "tonalRamp": [
+          "oklch(15% 0.018 266)",
+          "oklch(26% 0.021 266)",
+          "oklch(38% 0.025 266)",
+          "oklch(49% 0.025 266)",
+          "oklch(61% 0.021 266)",
+          "oklch(72% 0.018 266)",
+          "oklch(84% 0.015 266)",
+          "oklch(95% 0.011 266)"
+        ]
+      },
+      "paint-communication": {
+        "role": "competency",
+        "displayName": "Communication Blue",
+        "canonical": "#1a5fb4",
+        "tonalRamp": [
+          "oklch(15% 0.094 256)",
+          "oklch(26% 0.113 256)",
+          "oklch(38% 0.132 256)",
+          "oklch(49% 0.150 256)",
+          "oklch(61% 0.132 256)",
+          "oklch(72% 0.113 256)",
+          "oklch(84% 0.094 256)",
+          "oklch(95% 0.075 256)"
+        ]
+      },
+      "paint-critical-thinking": {
+        "role": "competency",
+        "displayName": "Thinking Violet",
+        "canonical": "#7b2d8e",
+        "tonalRamp": [
+          "oklch(15% 0.110 319)",
+          "oklch(26% 0.130 319)",
+          "oklch(38% 0.151 319)",
+          "oklch(49% 0.157 319)",
+          "oklch(61% 0.136 319)",
+          "oklch(72% 0.116 319)",
+          "oklch(84% 0.095 319)",
+          "oklch(95% 0.074 319)"
+        ]
+      },
+      "paint-creativity": {
+        "role": "competency",
+        "displayName": "Creativity Rust",
+        "canonical": "#b9470f",
+        "tonalRamp": [
+          "oklch(15% 0.090 41)",
+          "oklch(26% 0.110 41)",
+          "oklch(38% 0.130 41)",
+          "oklch(49% 0.150 41)",
+          "oklch(61% 0.149 41)",
+          "oklch(72% 0.129 41)",
+          "oklch(84% 0.109 41)",
+          "oklch(95% 0.089 41)"
+        ]
+      },
+      "paint-citizenship": {
+        "role": "competency",
+        "displayName": "Citizenship Green",
+        "canonical": "#0f7a3d",
+        "tonalRamp": [
+          "oklch(15% 0.079 151)",
+          "oklch(26% 0.095 151)",
+          "oklch(38% 0.112 151)",
+          "oklch(49% 0.128 151)",
+          "oklch(61% 0.116 151)",
+          "oklch(72% 0.100 151)",
+          "oklch(84% 0.084 151)",
+          "oklch(95% 0.067 151)"
+        ]
+      },
+      "paint-digital-literacy": {
+        "role": "competency",
+        "displayName": "Digital Teal",
+        "canonical": "#0b6f71",
+        "tonalRamp": [
+          "oklch(15% 0.051 197)",
+          "oklch(26% 0.061 197)",
+          "oklch(38% 0.071 197)",
+          "oklch(49% 0.081 197)",
+          "oklch(61% 0.071 197)",
+          "oklch(72% 0.061 197)",
+          "oklch(84% 0.051 197)",
+          "oklch(95% 0.040 197)"
+        ]
+      },
+      "paint-learning-to-learn": {
+        "role": "competency",
+        "displayName": "Learning Ochre",
+        "canonical": "#7f5a00",
+        "tonalRamp": [
+          "oklch(15% 0.063 81)",
+          "oklch(26% 0.076 81)",
+          "oklch(38% 0.089 81)",
+          "oklch(49% 0.102 81)",
+          "oklch(61% 0.089 81)",
+          "oklch(72% 0.077 81)",
+          "oklch(84% 0.064 81)",
+          "oklch(95% 0.051 81)"
+        ]
+      },
+      "paint-self-regulation": {
+        "role": "competency",
+        "displayName": "Regulation Rose",
+        "canonical": "#a3324a",
+        "tonalRamp": [
+          "oklch(15% 0.093 12)",
+          "oklch(26% 0.111 12)",
+          "oklch(38% 0.130 12)",
+          "oklch(49% 0.148 12)",
+          "oklch(61% 0.129 12)",
+          "oklch(72% 0.111 12)",
+          "oklch(84% 0.092 12)",
+          "oklch(95% 0.074 12)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles and the dashboard count sentence; 2.25rem, 3rem from md."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Learner names on signboards; brand lettering."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Board section headings; mobile wordmark."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, subtitles, recommendations; max 60ch."
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Board rows, reasons, tallies, meta lines."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Competency bands, nav items, buttons."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "board-in",
+        "value": "420ms cubic-bezier(0.16, 1, 0.3, 1); translateY(6px) + clip-path inset(0 0 35% 0) to none; 60ms stagger",
+        "purpose": "Signboards letter in on the dashboard; off under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one forward action per region: yellow paint, ink frame, square.",
+      "html": "<button class=\"ds-btn-primary\">Enter scores</button>",
+      "css": ".ds-btn-primary{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;background:#f4c20d;color:#111;border:2px solid #111;border-radius:0;padding:0 16px;height:40px;font-weight:700;font-size:0.875rem;cursor:pointer}.ds-btn-primary:hover{background:#e0b20b}.ds-btn-primary:focus-visible{outline:3px solid #111;outline-offset:2px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary, non-destructive action.",
+      "html": "<button class=\"ds-btn-outline\">Re-check all learners</button>",
+      "css": ".ds-btn-outline{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;background:#fff;color:#111;border:2px solid #111;border-radius:0;padding:0 16px;height:40px;font-weight:700;font-size:0.875rem;cursor:pointer}.ds-btn-outline:hover{background:#111;color:#fff}.ds-btn-outline:focus-visible{outline:3px solid #111;outline-offset:2px}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Square white field in ink with a single blue focus ring.",
+      "html": "<label class=\"ds-field\"><span>Email</span><input class=\"ds-input\" type=\"email\" placeholder=\"name@verona.ac.ug\"></label>",
+      "css": ".ds-field{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;display:grid;gap:4px;font-size:0.875rem;font-weight:700;color:#111}.ds-input{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;background:#fff;color:#111;border:1px solid #111;border-radius:0;height:40px;padding:0 12px;font-size:1rem;font-weight:400}.ds-input:focus-visible{outline:3px solid #16348f;outline-offset:1px}"
+    },
+    {
+      "name": "Nav Rail",
+      "kind": "nav",
+      "refersTo": "nav-rail",
+      "description": "Signboard-blue rail; yellow active item; square ink count badge.",
+      "html": "<nav class=\"ds-rail\"><a class=\"ds-rail-item\" href=\"#\">Dashboard</a><a class=\"ds-rail-item ds-active\" href=\"#\">Alerts <span class=\"ds-badge\">13</span></a><a class=\"ds-rail-item\" href=\"#\">Learners</a></nav>",
+      "css": ".ds-rail{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;background:#16348f;color:#fff;width:256px;padding:16px 0;display:flex;flex-direction:column}.ds-rail-item{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;color:inherit;text-decoration:none;font-size:0.9375rem}.ds-rail-item:hover{background:rgba(255,255,255,0.1)}.ds-rail-item:focus-visible{outline:3px solid #f4c20d;outline-offset:-3px}.ds-active{background:#f4c20d;color:#111;font-weight:700}.ds-badge{background:#111;color:#fff;font-weight:700;font-size:0.75rem;padding:1px 6px;border-radius:0}"
+    },
+    {
+      "name": "Severity Stripes",
+      "kind": "chip",
+      "refersTo": "",
+      "description": "Severity counted in 1-3 painted stripes; red only for high.",
+      "html": "<span class=\"ds-stripes\" role=\"img\" aria-label=\"Low severity\"><i class=\"ds-low\"></i><i></i><i></i></span> <span class=\"ds-stripes\" role=\"img\" aria-label=\"Medium severity\"><i class=\"ds-med\"></i><i class=\"ds-med\"></i><i></i></span> <span class=\"ds-stripes\" role=\"img\" aria-label=\"High severity\"><i class=\"ds-high\"></i><i class=\"ds-high\"></i><i class=\"ds-high\"></i></span>",
+      "css": ".ds-stripes{display:inline-flex;gap:3px;height:16px;margin-right:12px}.ds-stripes i{display:block;width:5px;background:#d3d8e2}.ds-stripes i.ds-low{background:#111}.ds-stripes i.ds-med{background:#f4c20d;box-shadow:inset 0 0 0 1px #111}.ds-stripes i.ds-high{background:#c41e17}"
+    },
+    {
+      "name": "Signboard",
+      "kind": "card",
+      "refersTo": "board",
+      "description": "The alert as a painted sign: learner band, competency band in its paint, intervention band, severity stripes on the right edge.",
+      "html": "<article class=\"ds-sign\"><span class=\"ds-edge\"><i></i><i></i><i></i></span><a class=\"ds-sign-head\" href=\"#\"><h3 class=\"ds-sign-name\">Nakato Sarah</h3><p class=\"ds-sign-meta\">S2 Blue · VHS-0142</p></a><div class=\"ds-sign-band\">Critical Thinking &amp; Problem-Solving</div><p class=\"ds-sign-reason\">Two assessments below benchmark this term</p><div class=\"ds-sign-do\"><p class=\"ds-sign-do-label\">Do this</p><p>Pair with a peer on the next problem set and check in on Friday.</p></div></article>",
+      "css": ".ds-sign{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;position:relative;background:#fff;border:2px solid #111;color:#111;max-width:320px}.ds-edge{position:absolute;top:-2px;bottom:-2px;right:-2px;width:12px;display:flex;flex-direction:column;gap:3px}.ds-edge i{flex:1;background:#c41e17}.ds-sign-head{display:block;padding:16px 32px 12px 16px;color:inherit;text-decoration:none}.ds-sign-head:hover{background:#e9ecf2}.ds-sign-head:focus-visible{outline:3px solid #111;outline-offset:2px}.ds-sign-name{font-family:'Archivo Variable','Atkinson Hyperlegible',sans-serif;font-stretch:68%;font-weight:850;text-transform:uppercase;letter-spacing:0.01em;line-height:0.95;font-size:1.5rem;margin:0}.ds-sign-meta{font-size:0.875rem;color:#4a5160;margin:4px 0 0}.ds-sign-band{background:#7b2d8e;color:#fff;font-weight:700;font-size:0.9375rem;padding:8px 16px;margin-right:10px}.ds-sign-reason{font-size:0.875rem;padding:10px 16px;margin:0 10px 0 0;border-bottom:1px solid #d3d8e2}.ds-sign-do{font-size:0.875rem;line-height:1.625;padding:10px 16px 16px;margin-right:10px}.ds-sign-do p{margin:2px 0 0}.ds-sign-do-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}"
+    },
+    {
+      "name": "Tally Board",
+      "kind": "card",
+      "refersTo": "board",
+      "description": "Board with an ink-ruled heading and tally rows filled in competency paint.",
+      "html": "<section class=\"ds-tally\"><h2 class=\"ds-tally-h\">Open alerts by competency</h2><a class=\"ds-tally-row\" href=\"#\"><span><i style=\"background:#1a5fb4\"></i>Communication</span><span class=\"ds-track\"><b style=\"width:80%;background:#1a5fb4\"></b></span><strong>8</strong></a><a class=\"ds-tally-row\" href=\"#\"><span><i style=\"background:#0f7a3d\"></i>Citizenship</span><span class=\"ds-track\"><b style=\"width:30%;background:#0f7a3d\"></b></span><strong>3</strong></a></section>",
+      "css": ".ds-tally{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;background:#fff;border:2px solid #111;color:#111;width:304px}.ds-tally-h{font-family:'Archivo Variable','Atkinson Hyperlegible',sans-serif;font-stretch:68%;font-weight:850;text-transform:uppercase;letter-spacing:0.01em;line-height:0.95;font-size:1.25rem;margin:0;padding:12px 16px;border-bottom:1px solid #111}.ds-tally-row{display:grid;grid-template-columns:1fr 5rem 2rem;align-items:center;gap:12px;padding:10px 16px;font-size:0.875rem;border-bottom:1px solid #d3d8e2;color:inherit;text-decoration:none}.ds-tally-row:hover{background:#e9ecf2}.ds-tally-row:focus-visible{outline:3px solid #111;outline-offset:2px}.ds-tally-row span:first-child{display:inline-flex;align-items:center;gap:8px}.ds-tally-row i{width:12px;height:12px;display:block}.ds-track{height:10px;background:#e9ecf2;display:block}.ds-track b{display:block;height:100%}.ds-tally-row strong{text-align:right;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Page Header",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Display-caps title, muted subtitle, ink rule beneath, actions right.",
+      "html": "<header class=\"ds-ph\"><div><h1 class=\"ds-ph-title\">13 learners need you</h1><p class=\"ds-ph-sub\">S2 Blue · Term 3 · 21 open alerts</p></div><button class=\"ds-ph-btn\">Enter scores</button></header>",
+      "css": ".ds-ph{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:1px solid #111;padding-bottom:16px;color:#111}.ds-ph-title{font-family:'Archivo Variable','Atkinson Hyperlegible',sans-serif;font-stretch:68%;font-weight:850;text-transform:uppercase;letter-spacing:0.01em;line-height:0.95;font-size:3rem;margin:0}.ds-ph-sub{color:#4a5160;margin:8px 0 0}.ds-ph-btn{font-family:'Atkinson Hyperlegible',ui-sans-serif,system-ui,sans-serif;background:#f4c20d;color:#111;border:2px solid #111;border-radius:0;padding:0 16px;height:40px;font-weight:700;cursor:pointer}.ds-ph-btn:focus-visible{outline:3px solid #111;outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Painted Signboard",
+    "overview": "Every alert is a painted school signboard, after Kampala hand-painted signwriting: a learner band lettered in condensed heavy caps, a competency band in that competency's own paint, and an intervention band that says what to do. The app reads like a noticeboard wall: a signboard-blue rail down the left, a cool wall-grey ground, and white square-cornered boards framed in 2px ink with one-pixel rules between rows.\n\nPaint is flat and carries meaning. Seven fixed competency paints identify competencies wherever they appear (bands, swatches, tally bars, trend lines). Red is reserved for high severity; yellow marks where you are and what to do next. Nothing is rounded, nothing floats on a shadow, nothing is gradient. Depth comes from frames and paint, not light.\n\nThe display voice is loud but rationed: condensed caps at a short scale for names, page titles, and board headings only. Everything read at length is Atkinson Hyperlegible, chosen for cheap screens and mixed literacy. Severity is never colour-only; it is counted.",
+    "keyCharacteristics": [
+      "Square corners everywhere (0 radius on every box, field, selector, and badge).",
+      "White boards with 2px ink frames on a wall-grey ground; 1px rules inside.",
+      "Seven fixed competency paints, all AA with white text.",
+      "Severity counted in 1-3 edge stripes; red only for high.",
+      "Yellow marks the active nav item and the primary action, nothing else.",
+      "Flat: no shadows, no depth tokens, no noise."
+    ],
+    "rules": [
+      {
+        "name": "The Red Means High Rule",
+        "body": "Warning Red appears on high-severity stripes and validation errors and nowhere else. A red that decorates makes the next real high severity invisible.",
+        "section": "colors"
+      },
+      {
+        "name": "The Yellow Points Rule",
+        "body": "Yellow marks exactly two things: where you are (active nav item) and what to do next (the primary action). One yellow button per view region.",
+        "section": "colors"
+      },
+      {
+        "name": "The Own Paint Rule",
+        "body": "A competency is always shown in its database paint, never in a theme colour, and paint is always paired with the competency's name or a labelled swatch.",
+        "section": "colors"
+      },
+      {
+        "name": "The Short Scale Rule",
+        "body": "Display caps run from 1.25rem to 3rem. They letter names and titles; they never set a sentence of more than a line or two, and never body copy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lettering Is For Names Rule",
+        "body": "Condensed caps are for proper names, titles, and headings. Anything a teacher reads to decide what to do is in Atkinson Hyperlegible.",
+        "section": "typography"
+      },
+      {
+        "name": "The Frame Not Shadow Rule",
+        "body": "Separate a surface with a 2px ink frame or a 1px rule, never a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep every corner square (0 radius), including badges, nav items, and pagination.",
+      "Do frame boards in 2px ink on Wall Grey (#e9ecf2) and rule rows in 1px Rule Grey (#d3d8e2).",
+      "Do count severity in 1-3 edge stripes: low ink, medium yellow with an ink ring, high red.",
+      "Do show below-benchmark chart points as hollow ink squares, and use the soft trend variant on every student-facing chart.",
+      "Do pair every competency paint with its name or a labelled swatch.",
+      "Do use Sign Yellow (#f4c20d) only for the active nav item, the primary action, selection, and medium severity.",
+      "Do set names and titles in Archivo condensed caps at 1.25-3rem, and everything read in Atkinson Hyperlegible."
+    ],
+    "donts": [
+      "Don't use Warning Red (#c41e17) for anything but high-severity stripes and validation errors.",
+      "Don't show alert, severity, or stripe language to students; their views show levels and progress only.",
+      "Don't add shadows, gradients, or rounded corners; separation is frame and rule.",
+      "Don't use colour as the only signal for severity or competency.",
+      "Don't introduce a competency colour in CSS; competency paint comes from the database."
+    ]
+  }
+}

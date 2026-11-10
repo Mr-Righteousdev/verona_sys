@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Gate board</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e1116;--panel:#171b22;--fg:#f2f2ee;--dim:#8b919c;--amber:#ffb000;--red:#c62a2f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:var(--bg);color:var(--fg);font-family:Archivo,sans-serif;display:flex}
+aside{width:220px;border-right:1px solid #262b34;padding:22px 0}
+aside .t{padding:0 20px 22px;font-weight:800;font-size:17px}aside a{display:block;padding:10px 20px;color:var(--dim);text-decoration:none;font-size:15px}
+aside a.on{color:var(--fg);background:var(--panel);border-left:3px solid var(--amber)}
+main{flex:1;padding:26px 32px}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}
+h1{font-size:36px;font-weight:800;font-stretch:80%}.head p{color:var(--dim);font-size:14px}
+.filters{display:flex;gap:8px}.filters span{border:1px solid #2c323c;padding:7px 12px;font-size:14px}.filters .on{border-color:var(--amber);color:var(--amber)}
+table{width:100%;border-collapse:collapse;font-size:16px}
+th{font-size:12px;letter-spacing:.08em;color:var(--dim);text-align:left;padding:10px 12px;border-bottom:1px solid #2c323c;text-transform:uppercase}
+td{padding:14px 12px;border-bottom:1px solid #1f242c}
+.m{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+tr.lit td{background:#2a2108}tr.lit td{color:var(--amber)}
+.st{font-family:'JetBrains Mono';font-size:13px;font-weight:700;padding:3px 8px}
+.hi{background:var(--red);color:#fff}.me{background:var(--amber);color:#111}.lo{border:1px solid var(--dim);color:var(--dim)}
+.pass{position:absolute;right:32px;bottom:28px;width:420px;background:var(--fg);color:#111;display:grid;grid-template-columns:1fr 1fr;border-radius:2px}
+.pass div{padding:12px 14px;border-right:1px dashed #999;border-bottom:1px dashed #999}.pass small{display:block;font-size:11px;letter-spacing:.08em;color:#555}
+.pass b{font-size:18px}
+</style></head><body>
+<aside><div class="t">VERONA EWS</div><a class="on" href="#">Board</a><a href="#">Learners</a><a href="#">Enter scores</a><a href="#">Attendance</a><a href="#">Reports</a></aside>
+<main>
+<div class="head"><div><h1>Who needs help first</h1><p>S1 East · ranked by urgency · updated 18:00</p></div><div class="filters"><span class="on">S1 East</span><span>All competencies</span><span>Open</span></div></div>
+<table><tr><th>Rank</th><th>Learner</th><th>Competency</th><th>Avg</th><th>Next</th><th>Attend.</th><th>Status</th></tr>
+<tr class="lit"><td class="m">01</td><td>Timothy Achieng</td><td>Creativity &amp; Imagination</td><td class="m">1.00</td><td class="m">1.00</td><td class="m">91%</td><td><span class="st hi">HIGH · NEW</span></td></tr>
+<tr><td class="m">02</td><td>Sarah Kyomuhendo</td><td>Communication &amp; Collab.</td><td class="m">1.40</td><td class="m">1.00</td><td class="m">94%</td><td><span class="st hi">HIGH</span></td></tr>
+<tr><td class="m">03</td><td>Daniel Ssemwogerere</td><td>Citizenship</td><td class="m">1.33</td><td class="m">—</td><td class="m">62%</td><td><span class="st hi">HIGH</span></td></tr>
+<tr class="lit"><td class="m">04</td><td>Grace Mugisha</td><td>Digital Literacy</td><td class="m">2.25</td><td class="m">1.75</td><td class="m">96%</td><td><span class="st me">MED · NEW</span></td></tr>
+<tr><td class="m">05</td><td>Mark Wasswa</td><td>Learning to Learn</td><td class="m">1.80</td><td class="m">—</td><td class="m">89%</td><td><span class="st lo">LOW</span></td></tr>
+<tr><td class="m">06</td><td>Irene Nalwoga</td><td>Self-Regulation</td><td class="m">1.75</td><td class="m">1.50</td><td class="m">93%</td><td><span class="st lo">LOW</span></td></tr>
+</table>
+<div class="pass"><div><small>LEARNER</small><b>Timothy Achieng</b></div><div><small>CLASS</small><b>S1 East</b></div><div><small>COMPETENCY</small><b>Creativity</b></div><div><small>LAST 5</small><b class="m">1 1 1 1 1</b></div></div>
+</main></body></html>

@@ -27,6 +27,10 @@ Route::middleware('auth')->group(function () {
         Route::livewire('/assessments', 'pages::assessments.index')->name('assessments.index');
         Route::livewire('/assessments/{assessment}/scores', 'pages::assessments.scores')->name('assessments.scores');
         Route::livewire('/attendance', 'pages::attendance')->name('attendance');
+        Route::livewire('/reports', 'pages::reports.index')->name('reports');
+        Route::livewire('/reports/learners/{student}', 'pages::reports.learner')->name('reports.learner');
+        Route::get('/reports/export/scores', [\App\Http\Controllers\ExportController::class, 'scores'])->name('export.scores');
+        Route::get('/reports/export/alerts', [\App\Http\Controllers\ExportController::class, 'alerts'])->name('export.alerts');
     });
 
     Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function () {

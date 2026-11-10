@@ -17,7 +17,7 @@ it('renders every staff page for the head teacher', function () {
     $alert = Alert::open()->first();
     $pages = ['/dashboard', '/alerts', "/alerts/{$alert->id}", '/learners', "/learners/{$alert->student_id}",
         '/assessments', '/assessments/'.Assessment::first()->id.'/scores', '/attendance',
-        '/admin/users', '/admin/classes', '/admin/competencies'];
+        '/admin/users', '/admin/classes', '/admin/competencies', '/reports', "/reports/learners/{$alert->student_id}"];
     foreach ($pages as $page) {
         $this->actingAs($admin)->get($page)->assertOk();
     }
@@ -36,4 +36,11 @@ it('never shows alert language to a flagged learner', function () {
         ->assertOk()
         ->assertSee('focus')
         ->assertDontSeeText(['Alert', 'alert', 'severity', 'benchmark of']);
+});
+
+it('exports scores and alerts as CSV for Excel', function () {
+    $admin = User::where('role', 'admin')->first();
+    $csv = $this->actingAs($admin)->get('/reports/export/alerts?class=1')->assertOk()->streamedContent();
+    expect($csv)->toContain('Learner,Competency,Severity');
+    $this->actingAs($admin)->get('/reports/export/scores')->assertOk()->assertHeader('content-type', 'text/csv; charset=UTF-8');
 });

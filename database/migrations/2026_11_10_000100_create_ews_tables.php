@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->string('colour', 7); // fixed paint colour used everywhere for this competency
-            $table->decimal('benchmark', 3, 2)->default(2.00); // expected level on the 1-3 CBC scale
+            $table->decimal('benchmark', 3, 1)->default(1.5); // learners averaging below this are flagged (0.9-3.0 scale)
             $table->text('intervention');                       // recommendation shown on alerts
             $table->timestamps();
         });
@@ -65,7 +65,7 @@ return new class extends Migration
             $table->foreignId('assessment_id')->constrained()->cascadeOnDelete();
             $table->foreignId('student_id')->constrained()->cascadeOnDelete();
             $table->foreignId('competency_id')->constrained()->cascadeOnDelete();
-            $table->unsignedTinyInteger('level'); // 1 Basic, 2 Moderate, 3 Outstanding
+            $table->decimal('level', 2, 1); // 0.9-3.0: Basic < 1.5 <= Moderate < 2.5 <= Outstanding
             $table->timestamps();
             $table->unique(['assessment_id', 'student_id', 'competency_id']);
         });
@@ -88,18 +88,30 @@ return new class extends Migration
             $table->decimal('recent_average', 3, 2);
             $table->decimal('projected_level', 3, 2)->nullable();
             $table->text('recommendation');
-            $table->string('status')->default('open'); // open | resolved
+            $table->string('status')->default('open'); // open | in_progress | resolved
+            $table->string('outcome')->nullable();     // improved | cleared | closed (set when resolved)
+            $table->timestamp('escalated_at')->nullable();
             $table->foreignId('resolved_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('resolved_at')->nullable();
             $table->text('resolution_note')->nullable();
             $table->timestamps();
             $table->index(['student_id', 'competency_id', 'status']);
         });
+
+        Schema::create('interventions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('alert_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->text('action');                       // what the teacher did
+            $table->date('started_on');
+            $table->decimal('baseline_average', 3, 2);    // recent average when the intervention began
+            $table->timestamps();
+        });
     }
 
     public function down(): void
     {
-        foreach (['alerts', 'attendances', 'scores', 'assessment_competency', 'assessments', 'competencies', 'students', 'subjects', 'classrooms'] as $table) {
+        foreach (['interventions', 'alerts', 'attendances', 'scores', 'assessment_competency', 'assessments', 'competencies', 'students', 'subjects', 'classrooms'] as $table) {
             Schema::dropIfExists($table);
         }
     }

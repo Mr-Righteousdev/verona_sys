@@ -70,14 +70,14 @@ new #[Title('Assessments & scores')] class extends Component {
     <div class="grid gap-7 xl:grid-cols-[1fr_24rem] items-start">
         <section>
             <div class="flex gap-3 mb-4">
-                <select wire:model.live="classroomFilter" class="select border-ink w-40" aria-label="Filter by class">
+                <select wire:model.live="classroomFilter" class="select w-40" aria-label="Filter by class">
                     <option value="">All classes</option>
                     @foreach ($classrooms as $c)<option value="{{ $c->id }}">{{ $c->name }}</option>@endforeach
                 </select>
             </div>
-            <div class="board overflow-x-auto">
+            <div class="panel overflow-x-auto">
                 <table class="table">
-                    <thead><tr class="border-b border-ink"><th>Date</th><th>Assessment</th><th class="hidden md:table-cell">Competencies</th><th class="text-right">Scored</th><th></th></tr></thead>
+                    <thead><tr class="border-b border-rule"><th>Date</th><th>Assessment</th><th class="hidden md:table-cell">Competencies</th><th class="text-right">Scored</th><th></th></tr></thead>
                     <tbody>
                         @forelse ($assessments as $a)
                             @php($expected = $a->competencies->count() * ($classrooms->firstWhere('id', $a->classroom_id)?->students_count ?? 0))
@@ -97,8 +97,8 @@ new #[Title('Assessments & scores')] class extends Component {
             <div class="mt-4">{{ $assessments->links() }}</div>
         </section>
 
-        <form wire:submit="create" class="board p-5 xl:sticky xl:top-6">
-            <h2 class="display text-2xl mb-4">New assessment</h2>
+        <form wire:submit="create" class="panel p-5 xl:sticky xl:top-6">
+            <h2 class="heading text-lg mb-4">New assessment</h2>
             <div class="grid gap-3">
                 <x-input label="Title" wire:model="title" placeholder="e.g. Activity of integration 3" />
                 <div class="grid grid-cols-2 gap-3">
@@ -113,14 +113,14 @@ new #[Title('Assessments & scores')] class extends Component {
                     <div class="grid gap-1">
                         @foreach ($competencies as $c)
                             <label class="flex items-center gap-3 px-2 py-1.5 cursor-pointer hover:bg-base-200 has-[:checked]:bg-base-200">
-                                <input type="checkbox" wire:model="competency_ids" value="{{ $c->id }}" class="checkbox checkbox-sm border-ink" />
+                                <input type="checkbox" wire:model="competency_ids" value="{{ $c->id }}" class="checkbox checkbox-sm" />
                                 <x-competency :competency="$c" class="text-sm" />
                             </label>
                         @endforeach
                     </div>
                     @error('competency_ids')<p class="text-sm text-error mt-1">{{ $message }}</p>@enderror
                 </fieldset>
-                <x-button type="submit" label="Create and enter scores" spinner="create" class="btn-secondary border-2 border-ink mt-2" />
+                <x-button type="submit" label="Create and enter scores" spinner="create" class="btn-primary mt-2" />
             </div>
         </form>
     </div>

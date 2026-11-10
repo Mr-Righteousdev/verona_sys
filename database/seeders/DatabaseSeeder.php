@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Alert;
 use App\Models\Assessment;
 use App\Models\Attendance;
 use App\Models\Classroom;
 use App\Models\Competency;
+use App\Models\Intervention;
 use App\Models\Score;
 use App\Models\Student;
 use App\Models\Subject;
@@ -60,6 +62,8 @@ class DatabaseSeeder extends Seeder
         ],
     ];
 
+    private const TERM_START = '2026-09-02';
+
     private const FIRST = ['Aisha', 'Brian', 'Catherine', 'Daniel', 'Esther', 'Francis', 'Grace', 'Hassan', 'Irene', 'Joseph', 'Kevin', 'Lydia', 'Mark', 'Nakato', 'Oscar', 'Patience', 'Ronald', 'Sarah', 'Timothy', 'Winnie', 'Allan', 'Brenda', 'Collins', 'Doreen', 'Emmanuel', 'Faith', 'Gideon', 'Hope', 'Isaac', 'Joan'];
 
     private const LAST = ['Nabukenya', 'Ssemwogerere', 'Nakimuli', 'Kato', 'Namubiru', 'Mugisha', 'Achieng', 'Okello', 'Nansubuga', 'Lubega', 'Atuhaire', 'Wasswa', 'Nalwoga', 'Kiggundu', 'Akello', 'Byaruhanga', 'Namatovu', 'Ssali', 'Tumusiime', 'Kyomuhendo'];
@@ -88,7 +92,7 @@ class DatabaseSeeder extends Seeder
             ]));
 
         $competencies = collect(self::COMPETENCIES)->map(fn ($c, $name) => Competency::create([
-            'name' => $name, 'colour' => $c[0], 'description' => $c[1], 'intervention' => $c[2], 'benchmark' => 2.0,
+            'name' => $name, 'colour' => $c[0], 'description' => $c[1], 'intervention' => $c[2], 'benchmark' => 1.5,
         ]))->values();
 
         $subjects = collect(['English', 'Mathematics', 'Biology', 'History & Political Education', 'Geography', 'ICT', 'Entrepreneurship'])
@@ -106,6 +110,7 @@ class DatabaseSeeder extends Seeder
             ->values();
 
         $n = 0;
+        $classes = [];
         foreach ($classrooms as $classroom) {
             $students = collect(range(1, 18))->map(function () use ($classroom, &$n, $password) {
                 $n++;
@@ -126,13 +131,15 @@ class DatabaseSeeder extends Seeder
                 ]);
             });
 
-            // Each learner gets a baseline and trend per competency; ~1 in 10 has a declining competency.
+            // Each learner gets a baseline and trend per competency on the 0.9-3.0 scale:
+            // ~1 in 16 competencies is declining, ~1 in 20 starts weak.
             $profiles = $students->mapWithKeys(fn (Student $s) => [$s->id => $competencies->mapWithKeys(fn ($c) => [
                 $c->id => [
-                    'base' => 2.1 + mt_rand(0, 90) / 100,
-                    'trend' => mt_rand(1, 10) === 1 ? -0.2 - mt_rand(0, 15) / 100 : mt_rand(-4, 6) / 100,
+                    'base' => mt_rand(1, 20) === 1 ? 1.1 + mt_rand(0, 30) / 100 : 1.7 + mt_rand(0, 110) / 100,
+                    'trend' => mt_rand(1, 16) === 1 ? -0.1 - mt_rand(0, 10) / 100 : mt_rand(-2, 4) / 100,
+                    'boost' => 0.0,
                 ],
-            ])]);
+            ])->all()])->all();
             $lowAttendance = $students->random(3)->pluck('id')->all();
 
             foreach ($schoolDays as $day) {
@@ -142,31 +149,82 @@ class DatabaseSeeder extends Seeder
                 }
             }
 
-            foreach (range(0, 6) as $i) {
-                $assessment = Assessment::create([
-                    'classroom_id' => $classroom->id,
-                    'subject_id' => $subjects[$i]->id,
-                    'teacher_id' => $teachers[($i + $classroom->id) % 4]->id,
-                    'title' => ['Activity of integration', 'Topic test', 'Group project', 'Class observation'][$i % 4].' '.($i + 1),
-                    'type' => Assessment::TYPES[$i % 4],
-                    'term' => 3,
-                    'assessed_on' => Carbon::parse('2026-09-23')->addWeeks($i),
-                ]);
-                $tagged = $competencies->random(3);
-                $assessment->competencies()->attach($tagged->pluck('id'));
+            $classes[] = compact('classroom', 'students', 'profiles');
+        }
 
-                foreach ($students as $s) {
-                    foreach ($tagged as $c) {
-                        $p = $profiles[$s->id][$c->id];
-                        $level = $p['base'] + $p['trend'] * $i + mt_rand(-35, 35) / 100;
-                        Score::create([
-                            'assessment_id' => $assessment->id,
-                            'student_id' => $s->id,
-                            'competency_id' => $c->id,
-                            'level' => max(1, min(3, (int) round($level))),
-                        ]);
-                    }
+        // First half of term: assessments, then the system flags gaps.
+        foreach ($classes as $k => $class) {
+            foreach (range(0, 4) as $i) {
+                $this->assessment($class, $i, $subjects, $teachers, $competencies);
+            }
+        }
+        $detector = app(GapDetector::class);
+        $detector->runAll();
+
+        // Mid-term: teachers act on about two thirds of the alerts. Some learners respond, some don't.
+        $actions = [
+            'Met the learner after class and agreed a weekly check-in.',
+            'Paired the learner with a stronger peer for group tasks.',
+            'Gave a short extra task each week with written feedback.',
+            'Spoke with the parent at visiting day and agreed home practice.',
+        ];
+        $started = Carbon::parse(self::TERM_START)->addWeeks(5);
+        foreach (Alert::open()->get() as $alert) {
+            if (mt_rand(1, 3) === 1) {
+                continue;
+            }
+            Intervention::create([
+                'alert_id' => $alert->id,
+                'user_id' => $teachers[mt_rand(0, 3)]->id,
+                'action' => $actions[mt_rand(0, 3)],
+                'started_on' => $started,
+                'baseline_average' => $alert->recent_average,
+            ]);
+            $alert->update(['status' => 'in_progress']);
+            foreach ($classes as $k => $class) {
+                if (isset($class['profiles'][$alert->student_id])) {
+                    $profile = $classes[$k]['profiles'][$alert->student_id];
+                    $profile[$alert->competency_id]['boost'] = mt_rand(1, 10) <= 6 ? 0.35 : 0.0;
+                    $profile[$alert->competency_id]['trend'] = max(0, $profile[$alert->competency_id]['trend']);
+                    $classes[$k]['profiles'][$alert->student_id] = $profile;
                 }
+            }
+        }
+
+        // Second half of term: more assessments; the follow-up shows who improved.
+        foreach ($classes as $class) {
+            foreach (range(5, 9) as $i) {
+                $this->assessment($class, $i, $subjects, $teachers, $competencies);
+            }
+        }
+    }
+
+    private function assessment(array $class, int $i, $subjects, $teachers, $competencies): void
+    {
+        $classroom = $class['classroom'];
+        $assessment = Assessment::create([
+            'classroom_id' => $classroom->id,
+            'subject_id' => $subjects[$i % count($subjects)]->id,
+            'teacher_id' => $teachers[($i + $classroom->id) % 4]->id,
+            'title' => ['Activity of integration', 'Topic test', 'Group project', 'Class observation'][$i % 4].' '.($i + 1),
+            'type' => Assessment::TYPES[$i % 4],
+            'term' => 3,
+            'assessed_on' => Carbon::parse(self::TERM_START)->addWeeks($i),
+        ]);
+        $tagged = $competencies->random(4);
+        $assessment->competencies()->attach($tagged->pluck('id'));
+
+        foreach ($class['students'] as $s) {
+            foreach ($tagged as $c) {
+                $p = $class['profiles'][$s->id][$c->id];
+                $boost = $i >= 5 ? $p['boost'] * ($i - 4) : 0;
+                $level = $p['base'] + $p['trend'] * $i + $boost + mt_rand(-20, 20) / 100;
+                Score::create([
+                    'assessment_id' => $assessment->id,
+                    'student_id' => $s->id,
+                    'competency_id' => $c->id,
+                    'level' => round(max(Score::MIN, min(Score::MAX, $level)), 1),
+                ]);
             }
         }
     }

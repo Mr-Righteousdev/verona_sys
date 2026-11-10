@@ -1,28 +1,32 @@
-@props(['levels', 'benchmark' => 2.0, 'colour' => '#16348f', 'width' => 240, 'height' => 72, 'soft' => false])
-{{-- Competency levels over time on the 1-3 CBC scale, with the benchmark ruled across. --}}
+@props(['levels', 'benchmark' => 1.5, 'colour' => '#1f4e99', 'width' => 240, 'height' => 80, 'soft' => false, 'marker' => null])
+{{-- Competency scores over time on the 0.9-3.0 CBC scale. Band edges at 1.5 and 2.5, benchmark dashed.
+     $marker: index of the first score after an intervention, drawn as a vertical rule. --}}
 @php
-    $levels = array_values($levels);
+    $levels = array_values(array_map('floatval', $levels));
     $n = count($levels);
-    $w = $width; $h = $height; $pad = 8; $left = 18;
-    $x = fn ($i) => $n > 1 ? $left + $i * ($w - $left - $pad) / ($n - 1) : $w / 2;
-    $y = fn ($v) => $h - $pad - ($v - 1) * ($h - 2 * $pad) / 2;
+    $w = $width; $h = $height; $pad = 8; $left = 26;
+    $x = fn ($i) => $n > 1 ? $left + $i * ($w - $left - $pad) / ($n - 1) : ($left + $w) / 2;
+    $y = fn ($v) => $h - $pad - ($v - 0.9) * ($h - 2 * $pad) / 2.1;
     $points = collect($levels)->map(fn ($v, $i) => round($x($i), 1).','.round($y($v), 1))->implode(' ');
 @endphp
 <svg viewBox="0 0 {{ $w }} {{ $h }}" {{ $attributes->class('w-full h-auto block') }} role="img"
-     aria-label="Levels {{ implode(', ', $levels) }}; benchmark {{ $benchmark }}">
-    @foreach ([1, 2, 3] as $g)
-        <line x1="{{ $left - 6 }}" x2="{{ $w }}" y1="{{ $y($g) }}" y2="{{ $y($g) }}" stroke="#d3d8e2" stroke-width="1" />
-        <text x="0" y="{{ $y($g) + 4 }}" font-size="11" fill="#4a5160" font-family="Atkinson Hyperlegible, sans-serif">{{ $g }}</text>
+     aria-label="Scores {{ implode(', ', $levels) }}; benchmark {{ $benchmark }}">
+    @foreach ([1.0, 1.5, 2.5, 3.0] as $g) {{-- a list, not keys: PHP truncates float array keys --}}
+        <line x1="{{ $left - 4 }}" x2="{{ $w }}" y1="{{ $y($g) }}" y2="{{ $y($g) }}" stroke="#e2e6ed" stroke-width="1" />
+        <text x="0" y="{{ $y($g) + 3.5 }}" font-size="10" fill="#556070" font-family="Atkinson Hyperlegible, sans-serif">{{ number_format($g, 1) }}</text>
     @endforeach
-    <line x1="{{ $left - 6 }}" x2="{{ $w }}" y1="{{ $y($benchmark) }}" y2="{{ $y($benchmark) }}" stroke="#111" stroke-width="1" stroke-dasharray="4 3" />
+    <line x1="{{ $left - 4 }}" x2="{{ $w }}" y1="{{ $y($benchmark) }}" y2="{{ $y($benchmark) }}" stroke="#1b2430" stroke-width="1" stroke-dasharray="4 3" />
+    @if ($marker !== null && $marker < $n)
+        <line x1="{{ $x(max(0, $marker - 0.5)) }}" x2="{{ $x(max(0, $marker - 0.5)) }}" y1="{{ $pad }}" y2="{{ $h - $pad }}" stroke="#1f4e99" stroke-width="1.5" />
+    @endif
     @if ($n > 1)
-        <polyline points="{{ $points }}" fill="none" stroke="{{ $colour }}" stroke-width="2.5" stroke-linejoin="round" />
+        <polyline points="{{ $points }}" fill="none" stroke="{{ $colour }}" stroke-width="2" stroke-linejoin="round" />
     @endif
     @foreach ($levels as $i => $v)
         @if ($v < $benchmark && ! $soft)
-            <rect x="{{ $x($i) - 3.5 }}" y="{{ $y($v) - 3.5 }}" width="7" height="7" fill="#fff" stroke="#111" stroke-width="2" />
+            <circle cx="{{ $x($i) }}" cy="{{ $y($v) }}" r="3.5" fill="#fff" stroke="#1b2430" stroke-width="1.75" />
         @else
-            <rect x="{{ $x($i) - 4 }}" y="{{ $y($v) - 4 }}" width="8" height="8" fill="{{ $colour }}" />
+            <circle cx="{{ $x($i) }}" cy="{{ $y($v) }}" r="3.5" fill="{{ $colour }}" />
         @endif
     @endforeach
 </svg>

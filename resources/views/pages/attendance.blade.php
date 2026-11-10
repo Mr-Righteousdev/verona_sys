@@ -69,27 +69,27 @@ new #[Title('Attendance')] class extends Component {
     @php($absent = collect($present)->reject()->count())
     <x-page-header title="Attendance" :subtitle="$recorded ? 'Register already taken for this day. Changes overwrite it.' : 'Everyone starts present. Tap the learners who are absent.'">
         <x-slot:actions>
-            <select wire:model.live="classroomId" class="select border-ink w-36" aria-label="Class">
+            <select wire:model.live="classroomId" class="select w-36" aria-label="Class">
                 @foreach ($classrooms as $c)<option value="{{ $c->id }}">{{ $c->name }}</option>@endforeach
             </select>
-            <input type="date" wire:model.live="date" max="{{ now()->toDateString() }}" class="input border-ink w-44" aria-label="Date" />
+            <input type="date" wire:model.live="date" max="{{ now()->toDateString() }}" class="input w-44" aria-label="Date" />
         </x-slot:actions>
     </x-page-header>
 
     <div class="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
         @foreach ($students as $s)
-            <label wire:key="p{{ $s->id }}" @class(['board flex items-center justify-between gap-3 px-4 py-3 cursor-pointer select-none', 'bg-base-300' => ! ($present[$s->id] ?? true)])>
+            <label wire:key="p{{ $s->id }}" @class(['panel flex items-center justify-between gap-3 px-4 py-3 cursor-pointer select-none', '!bg-base-200' => ! ($present[$s->id] ?? true)])>
                 <span class="font-bold">{{ $s->name }}</span>
                 <input type="checkbox" wire:model.live="present.{{ $s->id }}" class="sr-only peer" />
-                <span class="px-3 py-1 text-sm font-bold border-2 border-ink peer-checked:bg-base-200 peer-checked:text-ink bg-ink text-white peer-focus-visible:outline-3 peer-focus-visible:outline-ink">
+                <span @class(["tag peer-focus-visible:outline-2 peer-focus-visible:outline-navy", ($present[$s->id] ?? true) ? "tag-good" : "tag-high"])>
                     {{ ($present[$s->id] ?? true) ? 'Present' : 'Absent' }}
                 </span>
             </label>
         @endforeach
     </div>
 
-    <div class="flex flex-wrap items-center justify-between gap-3 mt-6 border-t border-ink pt-4">
+    <div class="flex flex-wrap items-center justify-between gap-3 mt-6 border-t border-rule pt-4">
         <p><span class="font-bold">{{ count($present) - $absent }}</span> present · <span class="font-bold">{{ $absent }}</span> absent</p>
-        <x-button label="Save register" wire:click="save" spinner="save" icon="o-check" class="btn-secondary border-2 border-ink" />
+        <x-button label="Save register" wire:click="save" spinner="save" icon="o-check" class="btn-primary" />
     </div>
 </div>

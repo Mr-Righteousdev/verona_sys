@@ -23,7 +23,8 @@ Built around CBC *competencies*, not grades: each alert names one learner, one c
 ## Operating Context
 
 - Teachers use a mix of devices: laptops/desktops in the staffroom for bulk score entry, phones (often low-to-mid Android on mobile data) for checking alerts between lessons. Connectivity is intermittent and data costs money — pages must be light.
-- Assessments: assignments, tests, projects, teacher observations, activities of integration. Each assessment is tagged with the competencies it measures; each learner is scored per competency on the CBC scale 1 Basic, 2 Moderate, 3 Outstanding.
+- Assessments: assignments, tests, projects, teacher observations, activities of integration. Each assessment is tagged with the competencies it measures; each learner is scored per competency on the CBC decimal scale 0.9–3.0 (below 1.5 Basic, 1.5–2.49 Moderate, 2.5+ Outstanding).
+- Interventions: when a teacher acts on an alert they record what they did; the system compares later scores with the average at that point, resolves the alert as improved when the learner is back on track, and escalates after 3 assessments without improvement.
 - Daily attendance register per class.
 - Gap detection runs when scores are saved and nightly.
 - Terms 1–3 per year; streams such as "S1 East".
@@ -32,12 +33,15 @@ Built around CBC *competencies*, not grades: each alert names one learner, one c
 
 - Stack: Laravel 13, Livewire 4, Tailwind 4, maryUI (daisyUI 5). **No Flux UI.** MariaDB/MySQL in production, SQLite locally.
 - Roles: admin, teacher, student (all log in). No self-registration; admin creates accounts.
-- Competencies: the NCDC seven — Communication & Collaboration; Critical Thinking & Problem-Solving; Creativity & Imagination; Citizenship; Digital Literacy; Learning to Learn; Self-Regulation. Benchmark (default 2.0) and intervention text editable per competency.
-- Alert severity: low / medium / high; statuses open / resolved (by teacher with a note, or auto-cleared when back on track).
+- Competencies: the NCDC seven — Communication & Collaboration; Critical Thinking & Problem-Solving; Creativity & Imagination; Citizenship; Digital Literacy; Learning to Learn; Self-Regulation. Benchmark (default 1.5, admin-editable per competency) and intervention text editable per competency.
+- Alert severity: low / medium / high; statuses open (needs action) / in_progress (intervention under way, may be escalated) / resolved (improved, back on track, or closed by a teacher).
+- Reports: printable learner progress report (browser print to PDF), class summary, intervention effectiveness, CSV exports for Excel.
 - Terminology: "learner" and "competency" (CBC usage); "alert" is teacher/admin-only vocabulary.
 - Undecided: offline data entry (deferred, noted as a study limitation); notifications beyond in-app (SMS/email) not built.
 
 ## Brand Commitments
+
+- **Conventional, serious look (user decision, 10 Nov 2026).** The user rejected the expressive "signboard" direction as too dramatic to be taken seriously by examiners and school staff. The product takes the category standard executed well: calm public-service software in the spirit of the GOV.UK Design System. Do not reintroduce expressive display type, painted panels or decorative motifs.
 
 - Verona High School crest and school colours will be supplied by the user — leave a slot for the crest and keep colours swappable via theme tokens. Do not invent a crest or claim official school colours until provided.
 

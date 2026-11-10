@@ -56,17 +56,17 @@ new #[Title('Classes & subjects')] class extends Component {
     <x-page-header title="Classes & subjects" subtitle="Streams, their class teachers, and the subjects assessments are recorded under." />
 
     <div class="grid gap-7 xl:grid-cols-2 items-start">
-        <section class="board">
-            <h2 class="display text-2xl px-5 py-4 border-b border-ink">Classes</h2>
+        <section class="panel">
+            <h2 class="heading text-lg px-5 py-4 border-b border-rule">Classes</h2>
             <table class="table">
-                <thead><tr class="border-b border-ink"><th>Class</th><th class="text-right">Learners</th><th>Class teacher</th></tr></thead>
+                <thead><tr class="border-b border-rule"><th>Class</th><th class="text-right">Learners</th><th>Class teacher</th></tr></thead>
                 <tbody>
                     @foreach ($classrooms as $c)
                         <tr wire:key="c{{ $c->id }}" class="border-b border-rule">
                             <td class="font-bold">{{ $c->name }}</td>
                             <td class="text-right">{{ $c->students_count }}</td>
                             <td>
-                                <select wire:change="setTeacher({{ $c->id }}, $event.target.value)" class="select select-sm border-ink w-full max-w-56" aria-label="Class teacher for {{ $c->name }}">
+                                <select wire:change="setTeacher({{ $c->id }}, $event.target.value)" class="select select-sm w-full max-w-56" aria-label="Class teacher for {{ $c->name }}">
                                     <option value="">None</option>
                                     @foreach ($teachers as $t)<option value="{{ $t->id }}" @selected($c->class_teacher_id === $t->id)>{{ $t->name }}</option>@endforeach
                                 </select>
@@ -75,24 +75,24 @@ new #[Title('Classes & subjects')] class extends Component {
                     @endforeach
                 </tbody>
             </table>
-            <form wire:submit="addClass" class="p-5 border-t border-ink grid gap-3 sm:grid-cols-[1fr_6rem_1fr_auto] items-end">
+            <form wire:submit="addClass" class="p-5 border-t border-rule grid gap-3 sm:grid-cols-[1fr_6rem_1fr_auto] items-end">
                 <x-input label="New class" wire:model="className" placeholder="S1 North" />
                 <x-select label="Level" wire:model="level" :options="collect(['S1', 'S2', 'S3', 'S4'])->map(fn ($l) => ['id' => $l, 'name' => $l])" />
                 <x-select label="Class teacher" wire:model="teacherId" :options="$teachers" placeholder="None" />
-                <x-button type="submit" label="Add" spinner="addClass" class="btn-secondary border-2 border-ink" />
+                <x-button type="submit" label="Add" spinner="addClass" class="btn-primary" />
             </form>
         </section>
 
-        <section class="board">
-            <h2 class="display text-2xl px-5 py-4 border-b border-ink">Subjects</h2>
+        <section class="panel">
+            <h2 class="heading text-lg px-5 py-4 border-b border-rule">Subjects</h2>
             <ul>
                 @foreach ($subjects as $s)
                     <li class="flex justify-between px-5 py-2.5 border-b border-rule"><span>{{ $s->name }}</span><span class="text-muted text-sm">{{ $s->assessments_count }} {{ str('assessment')->plural($s->assessments_count) }}</span></li>
                 @endforeach
             </ul>
-            <form wire:submit="addSubject" class="p-5 border-t border-ink flex gap-3 items-end">
+            <form wire:submit="addSubject" class="p-5 border-t border-rule flex gap-3 items-end">
                 <x-input label="New subject" wire:model="subjectName" class="flex-1" />
-                <x-button type="submit" label="Add" spinner="addSubject" class="btn-secondary border-2 border-ink" />
+                <x-button type="submit" label="Add" spinner="addSubject" class="btn-primary" />
             </form>
         </section>
     </div>

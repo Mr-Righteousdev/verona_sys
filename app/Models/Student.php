@@ -46,8 +46,26 @@ class Student extends Model
             ->orderBy('assessments.assessed_on')
             ->get(['scores.competency_id', 'scores.level'])
             ->groupBy('competency_id')
-            ->map(fn ($rows) => $rows->pluck('level')->all())
+            ->map(fn ($rows) => $rows->pluck('level')->map(fn ($l) => (float) $l)->all())
             ->all();
+    }
+
+    /**
+     * Per competency id: all levels this term, recent average and trend label.
+     *
+     * @return array<int, array{levels: list<float>, average: ?float, trend: ?string}>
+     */
+    public function competencySummary(): array
+    {
+        $detector = app(\App\Services\GapDetector::class);
+        $benchmarks = Competency::pluck('benchmark', 'id');
+
+        return collect($this->levelsByCompetency())->map(function ($levels, $id) use ($detector, $benchmarks) {
+            $recent = array_slice($levels, -\App\Services\GapDetector::WINDOW);
+            $analysis = $detector->analyse($recent, (float) $benchmarks[$id]);
+
+            return ['levels' => $levels, 'average' => $analysis['average'], 'trend' => $analysis['trend']];
+        })->all();
     }
 
     /** Share of days present over the last 30 days, or null without records. */

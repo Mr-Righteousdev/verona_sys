@@ -1,256 +1,307 @@
 ---
 name: Verona EWS
-description: Competency early-warning system for Verona High School, lettered like a painted school signboard.
+description: Competency early warning for Verona High School Mutundwe. Calm, conventional public-service software.
 colors:
-  signboard-blue: "#16348f"
-  paint-yellow: "#f4c20d"
-  paint-red: "#c41e17"
-  ink: "#111111"
-  board-white: "#ffffff"
-  wall-grey: "#e9ecf2"
-  rule-grey: "#d3d8e2"
-  muted-ink: "#4a5160"
-  paint-communication: "#1a5fb4"
-  paint-critical-thinking: "#7b2d8e"
-  paint-creativity: "#b9470f"
-  paint-citizenship: "#0f7a3d"
-  paint-digital-literacy: "#0b6f71"
-  paint-learning-to-learn: "#7f5a00"
-  paint-self-regulation: "#a3324a"
+  navy: "#1f4e99"
+  navy-soft: "#e8eef8"
+  navy-deep: "#173d7a"
+  selection-blue: "#cddcf3"
+  ink: "#1b2430"
+  muted: "#556070"
+  slate: "#475467"
+  rule: "#e2e6ed"
+  wall: "#f4f6f9"
+  paper: "#ffffff"
+  scrollbar-thumb: "#a3acba"
+  success: "#11743f"
+  warning: "#b25e09"
+  error: "#b42318"
+  info: "#1d5fb8"
+  tag-high-bg: "#fde8e7"
+  tag-high-text: "#9a1c13"
+  tag-medium-bg: "#fdefd9"
+  tag-medium-text: "#8a4a06"
+  tag-low-bg: "#eef1f5"
+  tag-low-text: "#3d4756"
+  tag-good-bg: "#e3f3e9"
+  tag-good-text: "#0d5c32"
+  competency-communication: "#1a5fb4"
+  competency-critical-thinking: "#7b2d8e"
+  competency-creativity: "#b9470f"
+  competency-citizenship: "#0f7a3d"
+  competency-digital-literacy: "#0b6f71"
+  competency-learning-to-learn: "#7f5a00"
+  competency-self-regulation: "#a3324a"
 typography:
-  display:
-    fontFamily: "Archivo Variable, Atkinson Hyperlegible, sans-serif"
-    fontSize: "3rem"
-    fontWeight: 850
-    lineHeight: 0.95
-    letterSpacing: "0.01em"
-    fontVariation: "'wdth' 68"
   headline:
-    fontFamily: "Archivo Variable, Atkinson Hyperlegible, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 850
-    lineHeight: 0.95
-    letterSpacing: "0.01em"
+    fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.75rem"
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
   title:
-    fontFamily: "Archivo Variable, Atkinson Hyperlegible, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 850
-    lineHeight: 0.95
-    letterSpacing: "0.01em"
+    fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
+  title-sm:
+    fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
+  number:
+    fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.5rem"
+    fontWeight: 700
+    lineHeight: 1.33
+    fontFeature: "tnum"
   body:
     fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.5
-  body-small:
+  body-sm:
     fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 400
     lineHeight: 1.43
-  label:
+  nav:
     fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.9375rem"
+    fontWeight: 400
+    lineHeight: 1.5
+  label:
+    fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.8125rem"
     fontWeight: 700
-    lineHeight: 1.4
+    lineHeight: 1.5
+  caption:
+    fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    lineHeight: 1.33
 rounded:
-  none: "0px"
+  field: "0.375rem"
+  md: "0.375rem"
+  box: "0.5rem"
+  pill: "999px"
 spacing:
-  band-y: "10px"
-  board-x: "16px"
-  board-gap: "20px"
-  section-gap: "28px"
-  page-x: "36px"
+  xs: "0.5rem"
+  sm: "0.75rem"
+  md: "1rem"
+  lg: "1.25rem"
+  xl: "1.75rem"
+  page-x: "2rem"
+  page-max: "1400px"
 components:
   button-primary:
-    backgroundColor: "{colors.paint-yellow}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    typography: "{typography.label}"
+    backgroundColor: "{colors.navy}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.field}"
   button-outline:
-    backgroundColor: "{colors.board-white}"
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-  board:
-    backgroundColor: "{colors.board-white}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    padding: "16px"
-  nav-rail:
-    backgroundColor: "{colors.signboard-blue}"
-    textColor: "{colors.board-white}"
-    width: "256px"
+    rounded: "{rounded.field}"
+  panel:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.box}"
+  panel-head:
+    padding: "0.875rem 1.25rem"
+  kpi:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.box}"
+    padding: "0.875rem 1rem"
+  tag:
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "0.125rem 0.5rem"
+  tag-high:
+    backgroundColor: "{colors.tag-high-bg}"
+    textColor: "{colors.tag-high-text}"
+  tag-medium:
+    backgroundColor: "{colors.tag-medium-bg}"
+    textColor: "{colors.tag-medium-text}"
+  tag-low:
+    backgroundColor: "{colors.tag-low-bg}"
+    textColor: "{colors.tag-low-text}"
+  tag-good:
+    backgroundColor: "{colors.tag-good-bg}"
+    textColor: "{colors.tag-good-text}"
+  tag-info:
+    backgroundColor: "{colors.navy-soft}"
+    textColor: "{colors.navy-deep}"
   nav-item-active:
-    backgroundColor: "{colors.paint-yellow}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    padding: "10px 20px"
-  input:
-    backgroundColor: "{colors.board-white}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-  count-badge:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.board-white}"
-    rounded: "{rounded.none}"
+    backgroundColor: "{colors.navy-soft}"
+    textColor: "{colors.navy}"
+    rounded: "{rounded.md}"
+    padding: "0.5rem 0.75rem"
+  recommendation-box:
+    backgroundColor: "{colors.wall}"
+    rounded: "{rounded.md}"
+    padding: "0.625rem 0.75rem"
+  competency-dot:
+    size: "0.625rem"
+    rounded: "{rounded.pill}"
 ---
 
 # Design System: Verona EWS
 
 ## Overview
 
-**Creative North Star: "The Painted Signboard"**
+**Creative North Star: "The School Office Register"**
 
-Every alert is a painted school signboard, after Kampala hand-painted signwriting: a learner band lettered in condensed heavy caps, a competency band in that competency's own paint, and an intervention band that says what to do. The app reads like a noticeboard wall: a signboard-blue rail down the left, a cool wall-grey ground, and white square-cornered boards framed in 2px ink with one-pixel rules between rows.
+Calm, conventional public-service software: the category standard executed well, in the spirit of the GOV.UK Design System. It should read as trustworthy school administration that a head teacher, a tired subject teacher with 70 learners, and a project examiner all take seriously. White cards on a pale grey-blue ground, one navy accent, one legible sans-serif, and status told in words inside tinted pills. Nothing is decorative; every colour carries a meaning or a competency.
 
-Paint is flat and carries meaning. Seven fixed competency paints identify competencies wherever they appear (bands, swatches, tally bars, trend lines). Red is reserved for high severity; yellow marks where you are and what to do next. Nothing is rounded, nothing floats on a shadow, nothing is gradient. Depth comes from frames and paint, not light.
+The system must stay conventional. This is a binding brand commitment (PRODUCT.md, user decision 10 Nov 2026): the earlier expressive "Kampala signwriting" direction was rejected as too dramatic and has been removed. Do not reintroduce expressive display type, painted panels, decorative motifs, or a second accent. New screens extend the incumbent pattern set (page header, panel, panel head, KPI card, tag, competency dot, trend chart) rather than inventing new surfaces.
 
-The display voice is loud but rationed: condensed caps at a short scale for names, page titles, and board headings only. Everything read at length is Atkinson Hyperlegible, chosen for cheap screens and mixed literacy. Severity is never colour-only; it is counted.
+Density is moderate and table-friendly: staff screens favour scannable lists and tables on laptops, and collapse to one column on low-cost Android phones. Pages are light: system-hosted font files, inline SVG charts, no imagery beyond the crest.
 
 **Key Characteristics:**
-- Square corners everywhere (0 radius on every box, field, selector, and badge).
-- White boards with 2px ink frames on a wall-grey ground; 1px rules inside.
-- Seven fixed competency paints, all AA with white text.
-- Severity counted in 1-3 edge stripes; red only for high.
-- Yellow marks the active nav item and the primary action, nothing else.
-- Flat: no shadows, no depth tokens, no noise.
+- White panels with a hairline border and a whisper of shadow on a #f4f6f9 ground.
+- A single navy accent for primary actions, links, the active nav item and focus.
+- Atkinson Hyperlegible throughout, bold sentence-case headings, quiet size steps.
+- Status always as a word in a tinted pill; colour never carries meaning alone.
+- Competencies identified by a small colour dot plus their name.
+- Inline SVG trend charts on the fixed CBC scale 0.9–3.0.
 
 ## Colors
 
-Flat sign paint on a cool wall: one structural blue, two signal paints, ink, and seven competency paints.
+A restrained neutral palette with one navy accent, a five-step semantic tag family, and seven data-driven competency hues kept small.
 
 ### Primary
-- **Signboard Blue** (signboard-blue): the side rail, the mobile bar, the browser theme colour, the caret, by-class tally bars, the current pagination page, link text, and the default trend line. The colour of the sign itself.
-
-### Secondary
-- **Sign Yellow** (paint-yellow): the active nav item, the primary action button, text selection, the focus ring on blue surfaces, and medium-severity stripes (always with a 1px inset ink ring so it reads on white). One accent line in the login display lettering.
-
-### Tertiary
-- **Warning Red** (paint-red): high-severity stripes only. It is the daisyUI `error` colour, so form validation errors also use it; it never decorates.
-
-### Competency paints
-Stored per competency in the database (`competencies.colour`), not in CSS; rendered inline. Each is AA with white text.
-- **Communication Blue** (paint-communication): Communication & Collaboration.
-- **Thinking Violet** (paint-critical-thinking): Critical Thinking & Problem-Solving.
-- **Creativity Rust** (paint-creativity): Creativity & Imagination.
-- **Citizenship Green** (paint-citizenship): Citizenship.
-- **Digital Teal** (paint-digital-literacy): Digital Literacy.
-- **Learning Ochre** (paint-learning-to-learn): Learning to Learn.
-- **Regulation Rose** (paint-self-regulation): Self-Regulation.
+- **Register Navy** (navy): primary buttons, text links, the active sidebar item, focus rings, caret, the KPI hover border, the crest placeholder, and the chart's intervention-start rule. It is the only accent.
+- **Navy Wash** (navy-soft): active nav background, the "info" tag fill, and the highlighted row in a table (at 60% opacity).
+- **Deep Navy** (navy-deep): text on the info tag.
 
 ### Neutral
-- **Ink** (ink): all body text, board frames, field borders, the page-header rule, the focus ring on light surfaces, low-severity stripes, the open-alerts count badge.
-- **Board White** (board-white): board and field surfaces; text on the blue rail and on competency paint.
-- **Wall Grey** (wall-grey): page ground, row hover, tally-bar tracks.
-- **Rule Grey** (rule-grey): one-pixel row rules inside boards, empty stripe slots, chart gridlines.
-- **Muted Ink** (muted-ink): secondary lines (class and admission number, subtitles, table headers, chart axis numbers).
+- **Ink** (ink): body text, headings, the chart benchmark line and hollow below-benchmark points. Also the daisyUI neutral.
+- **Muted Slate** (muted): secondary text, subtitles, table header text, captions, chart axis labels.
+- **Slate** (slate): daisyUI secondary role only; not used directly in views.
+- **Hairline** (rule): every border and divider: panel borders, panel-head separators, table row rules, chart grid lines.
+- **Wall** (wall): the page ground, list-row hover, the recommended-action box, the empty track of competency bars.
+- **Paper** (paper): panels, sidebar, mobile bar, inputs.
+
+### Semantic
+- **Success Green / Warning Amber / Error Red / Info Blue** (success, warning, error, info): daisyUI semantic roles for toasts and maryUI components.
+- **Tag pairs**: High (tag-high-bg / tag-high-text), Medium (tag-medium-*), Low or neutral (tag-low-*), Good (tag-good-*), Info (navy-soft / navy-deep). Each is a pale tint with a dark text of the same hue, at legible contrast.
+
+### Competency hues
+Stored in the database (`competencies.colour`), not in CSS; the seeded values are recorded in the frontmatter so swaps stay consistent. Communication & Collaboration, Critical Thinking & Problem-Solving, Creativity & Imagination, Citizenship, Digital Literacy, Learning to Learn, Self-Regulation, in that order.
 
 ### Named Rules
-**The Red Means High Rule.** Warning Red appears on high-severity stripes and validation errors and nowhere else. A red that decorates makes the next real high severity invisible.
+**The One Accent Rule.** Navy is the only accent. Primary actions, links, active nav and focus share it; no second brand colour is introduced. The theme tokens stay swappable so official school colours can replace navy when supplied.
 
-**The Yellow Points Rule.** Yellow marks exactly two things: where you are (active nav item) and what to do next (the primary action). One yellow button per view region.
+**The Small Hue Rule.** Competency colours appear only as small dots (10px circles), thin bars (8px tall, full-round) and chart lines/points. Never as fills for panels, buttons, text, or backgrounds.
 
-**The Own Paint Rule.** A competency is always shown in its database paint, never in a theme colour, and paint is always paired with the competency's name or a labelled swatch.
+**The Word First Rule.** Every status colour sits inside a pill that also carries a word (High, Medium, Low, Needs action, Intervention under way, Escalated, Improved). Colour reinforces; it never informs alone.
 
 ## Typography
 
-**Display Font:** Archivo Variable at 68% width, weight 850, uppercase (with Atkinson Hyperlegible fallback)
-**Body Font:** Atkinson Hyperlegible 400/700 (with ui-sans-serif, system-ui)
+**Body Font:** Atkinson Hyperlegible 400/700 (with ui-sans-serif, system-ui, sans-serif), self-hosted via @fontsource.
 
-**Character:** Signwriter's condensed heavy caps against a typeface designed for low-vision legibility. The lettering shouts the name; the body explains it calmly.
+**Character:** One humanist sans designed for low-vision legibility, at two weights. Hierarchy comes from size and bold, never from a second family.
 
 ### Hierarchy
-- **Display** (850, 2.25rem rising to 3rem at md, line-height 0.95, uppercase): page titles in the page header; the signboard count sentence ("13 learners need you").
-- **Headline** (850, 1.5rem, 0.95, uppercase): learner names on signboards; the brand lettering.
-- **Title** (850, 1.25rem, 0.95, uppercase): board section headings ("Open alerts by competency"), the mobile bar wordmark.
-- **Body** (400, 1rem, 1.5): running text, subtitles, recommendations; cap prose at 60ch.
-- **Body small** (400, 0.875rem): board rows, reasons, tally rows, meta lines.
-- **Label** (700, 0.9375rem): competency bands, nav items, buttons. Table headers are 700 at 0.8125rem in Muted Ink.
-
-Numbers in tables and tallies use tabular figures.
+- **Headline** (700, 1.5rem rising to 1.75rem at md, 1.25, -0.01em, balanced wrap): page titles via the page header.
+- **Title** (700, 1.125rem): section headings above card grids, learner names on alert cards. The printed report title uses 1.25rem.
+- **Title small** (700, 1rem): headings inside panel heads.
+- **Number** (700, 1.5rem, tabular): KPI values; 1.25rem for per-competency averages.
+- **Body** (400, 1rem, 1.5): running text; explanatory paragraphs capped near 65ch.
+- **Body small** (400, 0.875rem): table text, list rows, card metadata. The most common size in the build.
+- **Nav** (400, 0.9375rem; 700 when active): sidebar items.
+- **Label** (700, 0.8125rem): tag pills and table header cells.
+- **Caption** (400, 0.75rem, muted): KPI notes, dates under activity rows, chart footnotes, the demo-data notice.
 
 ### Named Rules
-**The Short Scale Rule.** Display caps run from 1.25rem to 3rem. They letter names and titles; they never set a sentence of more than a line or two, and never body copy.
+**The Sentence Case Rule.** Headings, buttons and labels are sentence case. The only uppercase text is the sidebar's admin group title ("School setup", 0.75rem, tracked); it is a navigation group label, not a pattern for content headings.
 
-**The Lettering Is For Names Rule.** Condensed caps are for proper names, titles, and headings. Anything a teacher reads to decide what to do is in Atkinson Hyperlegible.
+**The Tabular Numbers Rule.** Tables and every score, count or percentage use tabular figures.
 
 ## Layout
 
-App shell: a fixed 256px signboard-blue rail at lg and up; below lg, a sticky blue mobile bar with a menu button opens the rail as a drawer. Content sits on the wall-grey ground, padded 16px on mobile and 36px x 28px from md, capped at 1400px.
+Sidebar app shell (maryUI `x-main` with a drawer): a white fixed sidebar with the crest and nav on large screens; below lg it becomes a drawer opened from a sticky white top bar. Content sits on the wall ground with 1rem padding on phones and 2rem x 1.75rem from md, capped at 1400px.
 
-The dashboard is a main column plus a 19rem right column at xl. Signboards lay out in a grid of 1, 2 (md), and 3 (xl) columns with a 20px column gap; boards use CSS subgrid rows so learner, competency, and intervention bands align across neighbouring boards even when names wrap.
+Every page opens with the page header: title and muted subtitle on the left, actions (selects, the navy primary button) on the right, wrapping on small screens, 1.5rem below. The dashboard summary is a KPI row (2 columns on phones, 3 at md, 6 at xl). Main content uses a two-column grid at xl (fluid main plus a 21rem aside); card grids step 1 → 2 → 3 columns.
 
-Inside boards, rows are 16px horizontal and roughly 10px vertical, separated by one-pixel Rule Grey lines. Page headers end in a 1px ink rule with 16px below the text and 24px before content.
+Spacing rhythm: 0.75rem gaps inside rows and between KPI cards, 1rem between cards, 1.5–1.75rem between page sections; panel content inset 1.25rem horizontally. Rows inside panels use 0.5–0.75rem vertical padding with hairline separators.
+
+Print: nav, sidebar and anything marked no-print disappear; panels drop their shadow and avoid page breaks. The learner progress report is a single panel laid out as a document (crest header, definition grid, competency table, signature lines).
 
 ## Elevation & Depth
 
-Flat by construction: daisyUI depth and noise are 0 and there are no shadows anywhere. Depth is conveyed by the 2px ink frame of a board against the wall-grey ground, and by solid paint bands inside the board. The only motion is a board "lettering-in" entrance: a 6px rise with a bottom clip opening over 420ms on an expo-out curve, staggered 60ms across the first three boards, and disabled under reduced motion.
+Flat, with a single whisper. Depth comes from white panels on the pale wall plus a hairline border; one barely visible shadow lifts panels off the ground. daisyUI depth and noise are off.
+
+### Shadow Vocabulary
+- **Panel whisper** (`box-shadow: 0 1px 2px rgb(16 24 40 / 0.05)`): every panel and KPI card. Removed in print.
 
 ### Named Rules
-**The Frame Not Shadow Rule.** Separate a surface with a 2px ink frame or a 1px rule, never a shadow.
+**The Hairline Rule.** Separation is a 1px #e2e6ed line or a step from white to wall, never a heavier shadow, a coloured border, or a stripe.
 
 ## Shapes
 
-Square corners everywhere: radius 0 on boxes, fields, selectors, nav items, and badges. Borders come in two weights: 2px ink for boards, the brand plate, and buttons; 1px for row rules (Rule Grey) and section rules (ink). Severity stripes are short painted bars (5px wide horizontally, 12px wide vertically along a board's right edge, 3px gaps). Chart points are squares: filled paint squares on or above benchmark, hollow ink squares below it.
+Gently rounded and consistent: 6px (0.375rem) on fields, buttons, nav items and inset boxes; 8px (0.5rem) on panels and cards; full round (999px) on tag pills, competency dots and bar tracks. Borders are always 1px. The only silhouette with character is the crest shield.
 
 ## Components
 
 ### Buttons
-Painted, framed, and square.
-- **Shape:** square (0) with a 2px ink border.
-- **Primary:** Sign Yellow fill, ink text, bold label, usually a leading outline icon. Used for the one forward action: Enter scores, Save scores, Save register, Resolve alert, Sign in, Create.
-- **Outline:** white with a 2px ink border for secondary, non-destructive actions (Re-check all learners).
-- **Ghost:** borderless, for Cancel beside a primary.
-- **Focus:** 3px ink outline offset 2px; on blue surfaces the outline turns yellow.
+- **Shape:** gently rounded (0.375rem), daisyUI/maryUI `btn`.
+- **Primary:** navy fill, white text, optional leading 20px outline icon ("Enter scores", "Sign in", "Print or save as PDF"). One per view region.
+- **Outline:** hairline-bordered secondary actions ("Learner profile", "Progress report", "Close alert", "Re-check all learners").
+- **Focus:** 2px navy outline, 2px offset.
 
-### Signboard (signature)
-The alert as a painted sign, in three bands inside a `board`:
-1. **Learner band:** learner name in headline caps, class and admission number in Muted Ink beneath; the whole band links to the alert, hovering to Wall Grey.
-2. **Competency band:** the competency name in bold white on the competency's paint.
-3. **Reason and intervention:** the first reason (with "+N more"), a 1px rule, then the recommendation under a short bold "Do this" band label. The compact variant drops the intervention band.
-
-Severity stripes run down the board's right edge, overlapping the frame. Resolved boards drop to 80% opacity and the competency band becomes an ink outline (1px top and bottom) on white.
-
-### Severity stripes
-Three slots, filled by count: low is one ink stripe, medium two yellow stripes with a 1px inset ink ring, high three red stripes; unfilled slots are Rule Grey. Always labelled for assistive tech ("High severity"). Horizontal inline form for tables; vertical edge form for boards.
-
-### Trend chart
-Competency levels on the 1-3 scale as an SVG line in the competency's paint (2.5px), with Rule Grey gridlines, axis numbers in Muted Ink, and the benchmark as a 1px dashed ink line. Points are 8px paint squares; points below benchmark are 7px hollow white squares with a 2px ink stroke. The **soft** variant (student view) paints every point as a filled square so nothing is flagged.
-
-### Competency swatch
-A 12px square of paint followed by the competency name (or its short form before the ampersand). Used in tallies, filters, and tables so paint is never the only cue.
+### Tags (status pills)
+- **Style:** inline pill, 999px radius, 0.125rem x 0.5rem padding, 0.8125rem bold text, optional 16px icon before the word. Tinted fill with darker same-hue text.
+- **Variants:** high (red), medium (amber), low (neutral grey), good (green), info (navy wash).
+- **Mapping:** severity uses high/medium/low by name. Alert status: escalated → high, intervention under way → info, improved or cleared → good, other resolved and open → low. Trend label: Improving → good, Declining → medium, Steady → low. Score values in the Basic band (below the competency benchmark, default 1.5) render as medium pills; Moderate and Outstanding values render as plain text.
 
 ### Cards / Containers
-- **Corner Style:** square (0).
-- **Background:** Board White on Wall Grey.
-- **Shadow Strategy:** none; see Elevation & Depth.
-- **Border:** 2px ink; inner rows ruled 1px Rule Grey; board headings ruled 1px ink.
-- **Internal Padding:** 16px rows; 24-32px for standalone boards (login, empty states).
+- **Panel:** white, 0.5rem radius, 1px hairline border, panel whisper shadow. Internal padding 1rem–1.5rem; the printed report uses up to 2.5rem.
+- **Panel head:** flex row, 0.875rem x 1.25rem padding, hairline bottom border; a small bold title on the left and a muted caption, link or count tag on the right.
+- **List rows inside panels:** full-width links, 0.5–0.75rem x 1.25rem padding, hover to wall.
+
+### KPI card
+A panel at 0.875rem x 1rem: muted 0.875rem label, 1.5rem bold tabular number, optional 0.75rem muted note. When it links, its border turns navy on hover.
+
+### Alert card
+Staff-only. A panel answering who, which competency, why, and what to do: learner name (title, link) with class and admission number beneath; severity tag top-right; competency dot and name in bold small text, plus a status tag when not open; the first reason with "+n more"; a wall-coloured "Recommended action" box (0.375rem radius). The compact variant omits the box.
+
+### Competency marker
+A 10px colour dot followed by the competency name (optionally shortened before "&"). Competency bars are 8px full-round tracks in wall with a fill in the competency hue.
+
+### Trend chart
+Inline SVG, no chart library. Fixed scale 0.9–3.0; hairline grid lines at 1.0, 1.5, 2.5 and 3.0 with 10px muted axis numbers; benchmark as a dashed ink line (4 3); the score line 2px in the competency hue with 3.5px points. For staff, points below the benchmark are hollow (white fill, ink stroke), so low values read without colour. The students' soft variant fills every point. A 1.5px navy vertical rule marks where an intervention started. Each chart carries an aria-label listing scores and benchmark.
 
 ### Inputs / Fields
-- **Style:** white, square, 1px ink border (the same ink as the frames).
-- **Focus:** a single 3px Signboard Blue outline offset 1px; the default daisyUI ring is suppressed so there is one ring, not two.
-- **Error:** Warning Red message beneath the field.
+- **Style:** maryUI/daisyUI fields, white, 1px border, 0.375rem radius.
+- **Focus:** exactly one ring: 2px navy outline, 1px offset, on the field wrapper.
+
+### Tables
+Rules not stripes: hairline row borders, 0.75rem vertical cell padding, 0.8125rem bold muted header text, tabular figures. A selected row takes the navy wash at 60%.
 
 ### Navigation
-Signboard-blue rail, white text at 0.9375rem, full-bleed square items with 20px x 10px padding and outline icons. The active item is Sign Yellow with ink bold text. The Alerts item carries an open-count badge: square ink chip, white bold number. Admin groups sit under a small muted group heading. The brand plate is the school name lettered in two lines of headline caps inside a 2px frame in the current colour, with a one-line descriptor; a school crest at `public/crest.png` appears beside the lettering when supplied. The user block sits at the rail foot above a 1px white/25% rule.
+- **Sidebar:** crest and wordmark ("Verona High School" bold, "Competency early warning" caption) at top; items at 0.9375rem with 20px outline icons, 0.375rem radius, 0.5rem x 0.75rem padding; active item navy wash with bold navy text. The open-alert count sits in a low tag. User name, role and sign-out icon sit at the foot above a hairline.
+- **Mobile:** sticky white bar with the brand and a hamburger that opens the same sidebar as a drawer.
 
-### Tally rows
-Board rows of label, a 10px-tall bar on a Wall Grey track, and a bold tabular count. Competency tallies fill in competency paint; class tallies fill in Signboard Blue. Each row is a link or filter.
+### Crest
+The brand slot shows `public/crest.png` when present, otherwise `public/crest-placeholder.svg` (a plain navy shield with a white V), at 40px tall. Do not invent or redraw the crest.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep every corner square (0 radius), including badges, nav items, and pagination.
-- **Do** frame boards in 2px ink on Wall Grey (#e9ecf2) and rule rows in 1px Rule Grey (#d3d8e2).
-- **Do** count severity in 1-3 edge stripes: low ink, medium yellow with an ink ring, high red.
-- **Do** show below-benchmark chart points as hollow ink squares, and use the soft trend variant on every student-facing chart.
-- **Do** pair every competency paint with its name or a labelled swatch.
-- **Do** use Sign Yellow (#f4c20d) only for the active nav item, the primary action, selection, and medium severity.
-- **Do** set names and titles in Archivo condensed caps at 1.25-3rem, and everything read in Atkinson Hyperlegible.
+- **Do** keep the look conventional and serious: white panels, hairline borders, one navy accent, Atkinson Hyperlegible, sentence case.
+- **Do** put every status in a tag pill with a word; use the five tag variants only.
+- **Do** show competencies as a 10px dot plus the name, and keep their hues to dots, thin bars and chart lines.
+- **Do** draw charts as inline SVG on the fixed 0.9–3.0 scale with the dashed ink benchmark and hollow below-benchmark points for staff.
+- **Do** show Basic-band scores as medium tags and leave Moderate and Outstanding values as plain text.
+- **Do** use tabular figures for every number.
+- **Do** keep colours in theme tokens so official school colours and the real crest can be swapped in.
 
 ### Don't:
-- **Don't** use Warning Red (#c41e17) for anything but high-severity stripes and validation errors.
-- **Don't** show alert, severity, or stripe language to students; their views show levels and progress only.
-- **Don't** add shadows, gradients, or rounded corners; separation is frame and rule.
-- **Don't** use colour as the only signal for severity or competency.
-- **Don't** introduce a competency colour in CSS; competency paint comes from the database.
+- **Don't** reintroduce expressive display type, painted panels, decorative motifs, or a second accent colour.
+- **Don't** let colour carry meaning alone; no colour-only severity, bands, or trends.
+- **Don't** show students alert, severity or at-risk language, or a "Declining" label; on student screens open alerts become "focus areas" and the soft chart variant is used.
+- **Don't** use competency hues as panel, button, text or background fills.
+- **Don't** add heavier shadows, coloured side borders, or zebra stripes; separation is hairline rules and the white/wall step.
+- **Don't** add a charting library or raster images beyond the crest; pages must stay light on metered data.

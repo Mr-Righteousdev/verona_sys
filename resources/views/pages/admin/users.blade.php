@@ -116,14 +116,14 @@ new #[Title('Users')] class extends Component {
     <div class="grid gap-7 xl:grid-cols-[1fr_24rem] items-start">
         <section>
             <div class="flex flex-wrap gap-3 mb-4">
-                <x-input wire:model.live.debounce.300ms="search" placeholder="Name or email" icon="o-magnifying-glass" class="border-ink w-64" aria-label="Search users" />
-                <select wire:model.live="role" class="select border-ink w-36" aria-label="Role">
+                <x-input wire:model.live.debounce.300ms="search" placeholder="Name or email" icon="o-magnifying-glass" class="w-64" aria-label="Search users" />
+                <select wire:model.live="role" class="select w-36" aria-label="Role">
                     <option value="">All roles</option><option value="admin">Admin</option><option value="teacher">Teacher</option><option value="student">Student</option>
                 </select>
             </div>
-            <div class="board overflow-x-auto">
+            <div class="panel overflow-x-auto">
                 <table class="table">
-                    <thead><tr class="border-b border-ink"><th>Name</th><th class="hidden md:table-cell">Email</th><th>Role</th><th></th></tr></thead>
+                    <thead><tr class="border-b border-rule"><th>Name</th><th class="hidden md:table-cell">Email</th><th>Role</th><th></th></tr></thead>
                     <tbody>
                         @foreach ($users as $u)
                             <tr wire:key="u{{ $u->id }}" class="border-b border-rule hover:bg-base-200">
@@ -144,8 +144,8 @@ new #[Title('Users')] class extends Component {
             <div class="mt-4">{{ $users->links() }}</div>
         </section>
 
-        <form wire:submit="save" class="board p-5 xl:sticky xl:top-6">
-            <h2 class="display text-2xl mb-4">{{ $editingId ? 'Edit user' : 'New user' }}</h2>
+        <form wire:submit="save" class="panel p-5 xl:sticky xl:top-6">
+            <h2 class="heading text-lg mb-4">{{ $editingId ? 'Edit user' : 'New user' }}</h2>
             <div class="grid gap-3">
                 <x-input label="Full name" wire:model="name" />
                 <x-input label="Email" type="email" wire:model="email" />
@@ -159,7 +159,7 @@ new #[Title('Users')] class extends Component {
                     <x-input label="Admission number" wire:model="admission_no" placeholder="VHS/S1/001" />
                 @endif
                 <div class="flex gap-2 mt-2">
-                    <x-button type="submit" :label="$editingId ? 'Save changes' : 'Create user'" spinner="save" class="btn-secondary border-2 border-ink" />
+                    <x-button type="submit" :label="$editingId ? 'Save changes' : 'Create user'" spinner="save" class="btn-primary" />
                     @if ($editingId)<x-button label="Cancel" wire:click="cancel" class="btn-ghost" />@endif
                 </div>
             </div>

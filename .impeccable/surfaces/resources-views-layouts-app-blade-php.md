@@ -7,18 +7,18 @@ related_targets: ["resources/views/pages"]
 
 # Surface brief: EWS app shell (staff + student screens)
 
-Mode: Operate. Audience: Verona teachers (laptop in staffroom for bulk entry, Android phone for checking alerts), head teacher, students. Job: see who needs help, for which competency, and what to do; enter scores and attendance fast. Constraints: metered data, cheap screens, no colour-only cues, students never see alerts or severity.
+Mode: Operate. Audience: Verona teachers (laptop in staffroom for bulk entry, Android phone for checking alerts), head teacher, students. Job: see who needs help, for which competency, and what to do; record interventions and see whether they work; enter scores and attendance fast. Constraints: metered data, cheap screens, no colour-only cues, students never see alerts or severity.
 
 ## Direction contract
 
-THESIS: Every alert is a painted school signboard — learner band, competency band in its own paint, intervention band — instead of the category's grey KPI tiles and badge tables.
+THESIS: Calm, conventional public-service software (the category standard executed well, GOV.UK-like): it should read as trustworthy school administration, never as a poster. Replaces the earlier "Kampala signwriting" direction, which the user rejected as too dramatic.
 
-OWN-WORLD: Signboard blue (#16348f) side rail, cool wall-grey ground, white square-cornered boards with 2px ink frames, one-pixel rules. Seven fixed competency paints, each AA with white text. Red only for high severity; severity also counted in 1–3 painted edge stripes. Archivo condensed heavy caps for display at a short scale; Atkinson Hyperlegible for everything read. Yellow marks the active nav item and the primary action. Resolved items drop to ink outline.
+OWN-WORLD: White sidebar and white cards with hairline #e2e6ed borders and a faint shadow on a #f4f6f9 ground; one navy accent #1f4e99 for primary actions, links and the active nav item. Atkinson Hyperlegible throughout, sentence-case headings. Status as tinted pill badges that always carry a word (High/Medium/Low, Needs action, Intervention under way, Escalated, Improved). Competencies as small colour dots + names. 6–8px radii.
 
-STORY: A teacher opens the app, reads one sentence ("13 learners need you this week"), sees the three most urgent boards, acts or opens the full list, and enters scores without hunting.
+STORY: A teacher opens the dashboard, reads the key numbers, sees the learners needing action with a recommended step, records an intervention, and later sees before/after progress and whether it escalated.
 
-FIRST VIEWPORT: Blue rail with lettered school name and nav; header with the condensed-caps count sentence, class/term line, yellow "Enter scores" action right; three signboards across; right column with by-competency and by-class tallies in competency paint.
+FIRST VIEWPORT: White sidebar with crest and nav; "Dashboard" title with class/term line, class select and navy "Enter scores" on the right; a row of six key-number cards; "Needs action" alert cards left, escalated and by-competency panels right.
 
-FORM: Kampala hand-painted signwriting, candidate 5 of 7 (assigned). seed:2b8023d157121f86
+FORM: canon (the category standard, user-chosen standing exit). seed: none (unavailable)
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

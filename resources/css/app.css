@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/archivo/standard.css';
 @import '@fontsource/atkinson-hyperlegible/400.css';
 @import '@fontsource/atkinson-hyperlegible/700.css';
 
@@ -11,34 +10,34 @@
     themes: false;
 }
 
-/* Verona signboard theme: painted flat colour, square boards, one-pixel rules. */
+/* Verona theme: calm, conventional public-service software. White surfaces, one navy accent. */
 @plugin "daisyui/theme" {
     name: "verona";
     default: true;
     color-scheme: light;
     --color-base-100: #ffffff;
-    --color-base-200: #e9ecf2;
-    --color-base-300: #d3d8e2;
-    --color-base-content: #111111;
-    --color-primary: #16348f;
+    --color-base-200: #f4f6f9;
+    --color-base-300: #e2e6ed;
+    --color-base-content: #1b2430;
+    --color-primary: #1f4e99;
     --color-primary-content: #ffffff;
-    --color-secondary: #f4c20d;
-    --color-secondary-content: #111111;
-    --color-accent: #0f7a3d;
+    --color-secondary: #475467;
+    --color-secondary-content: #ffffff;
+    --color-accent: #11743f;
     --color-accent-content: #ffffff;
-    --color-neutral: #111111;
+    --color-neutral: #1b2430;
     --color-neutral-content: #ffffff;
-    --color-info: #1a5fb4;
+    --color-info: #1d5fb8;
     --color-info-content: #ffffff;
-    --color-success: #0f7a3d;
+    --color-success: #11743f;
     --color-success-content: #ffffff;
-    --color-warning: #f4c20d;
-    --color-warning-content: #111111;
-    --color-error: #c41e17;
+    --color-warning: #b25e09;
+    --color-warning-content: #ffffff;
+    --color-error: #b42318;
     --color-error-content: #ffffff;
-    --radius-selector: 0;
-    --radius-field: 0;
-    --radius-box: 0;
+    --radius-selector: 0.375rem;
+    --radius-field: 0.375rem;
+    --radius-box: 0.5rem;
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
     --border: 1px;
@@ -48,59 +47,56 @@
 
 @theme {
     --font-sans: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Archivo Variable', 'Atkinson Hyperlegible', sans-serif;
-    --color-ink: #111111;
-    --color-wall: #e9ecf2;
-    --color-board: #16348f;
-    --color-paint-red: #c41e17;
-    --color-paint-yellow: #f4c20d;
-    --color-rule: #d3d8e2;
-    --color-muted: #4a5160;
+    --color-ink: #1b2430;
+    --color-muted: #556070;
+    --color-rule: #e2e6ed;
+    --color-wall: #f4f6f9;
+    --color-navy: #1f4e99;
+    --color-navy-soft: #e8eef8;
 }
 
-/* Hand-lettered sign voice: condensed heavy caps, used on a short scale only. */
-.display {
-    font-family: var(--font-display);
-    font-stretch: 68%;
-    font-weight: 850;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    line-height: 0.95;
-    text-wrap: balance;
-}
+/* Page and section headings: sentence case, firm weight, quiet size steps. */
+.heading { font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; text-wrap: balance; }
 
-/* A signboard: white board, ink frame, square corners. */
-.board {
+/* The one surface: a white card with a hairline border and a whisper of shadow. */
+.panel {
     background: var(--color-base-100);
-    border: 2px solid var(--color-ink);
+    border: 1px solid var(--color-rule);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgb(16 24 40 / 0.05);
 }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.875rem 1.25rem; border-bottom: 1px solid var(--color-rule); }
+
+/* Status badges: tinted fill with darker text, always paired with a word. */
+.tag { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.125rem 0.5rem; border-radius: 999px; font-size: 0.8125rem; font-weight: 700; line-height: 1.5; white-space: nowrap; }
+.tag-high { background: #fde8e7; color: #9a1c13; }
+.tag-medium { background: #fdefd9; color: #8a4a06; }
+.tag-low { background: #eef1f5; color: #3d4756; }
+.tag-good { background: #e3f3e9; color: #0d5c32; }
+.tag-info { background: var(--color-navy-soft); color: #173d7a; }
 
 /* Browser surfaces carry the palette too. */
-::selection { background: var(--color-paint-yellow); color: var(--color-ink); }
-html { caret-color: var(--color-board); scrollbar-color: #8a93a6 var(--color-wall); }
-:focus-visible { outline: 3px solid var(--color-ink); outline-offset: 2px; }
-.bg-primary :focus-visible { outline-color: var(--color-paint-yellow); }
+::selection { background: #cddcf3; color: var(--color-ink); }
+html { caret-color: var(--color-navy); scrollbar-color: #a3acba var(--color-wall); }
+:focus-visible { outline: 2px solid var(--color-navy); outline-offset: 2px; }
 a { text-underline-offset: 3px; }
 table, .tabular { font-variant-numeric: tabular-nums; }
 
-/* Form fields wear the same ink frame as the boards; one focus ring, not two. */
-.input, .select, .textarea { border-color: var(--color-ink); }
+/* Fields: one focus ring, not two. */
 .input :focus-visible, .input:focus, .select:focus, .textarea:focus { outline: none; }
-.input:focus-within, .select:focus-visible, .textarea:focus-visible { outline: 3px solid var(--color-board); outline-offset: 1px; }
+.input:focus-within, .select:focus-visible, .textarea:focus-visible { outline: 2px solid var(--color-navy); outline-offset: 1px; }
 
-/* maryUI table tweaks: rules not stripes, readable header. */
+/* Tables: rules not stripes, readable header. */
 .table thead th { font-size: 0.8125rem; color: var(--color-muted); font-weight: 700; }
 .table :where(th, td) { padding-block: 0.75rem; }
+.table tbody tr { border-color: var(--color-rule); }
 
 .mary-table-pagination span[aria-current="page"] > span { @apply bg-primary text-primary-content; }
 .mary-table-pagination button { @apply cursor-pointer; }
 
-@media (prefers-reduced-motion: no-preference) {
-    .board-enter { animation: board-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-    .board-enter:nth-child(2) { animation-delay: 60ms; }
-    .board-enter:nth-child(3) { animation-delay: 120ms; }
-}
-@keyframes board-in {
-    from { transform: translateY(6px); clip-path: inset(0 0 35% 0); }
-    to { transform: none; clip-path: inset(0 0 0 0); }
+@media print {
+    .no-print, .drawer-side, nav { display: none !important; }
+    .drawer-content { padding: 0 !important; }
+    body { background: #fff; }
+    .panel { box-shadow: none; break-inside: avoid; }
 }

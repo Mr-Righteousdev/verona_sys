@@ -22,7 +22,7 @@ new #[Title('Competencies')] class extends Component {
     public function save(int $id): void
     {
         $this->validate([
-            "form.$id.benchmark" => 'required|numeric|between:1,3',
+            "form.$id.benchmark" => 'required|numeric|between:0.9,3',
             "form.$id.description" => 'nullable|max:500',
             "form.$id.intervention" => 'required|max:1000',
         ], [], ["form.$id.benchmark" => 'benchmark', "form.$id.intervention" => 'recommendation']);
@@ -45,21 +45,21 @@ new #[Title('Competencies')] class extends Component {
 ?>
 
 <div>
-    <x-page-header title="Competencies" subtitle="The NCDC seven. The benchmark is the level (1–3) a learner should average; the recommendation appears on every alert for that competency.">
+    <x-page-header title="Competencies" subtitle="The NCDC seven. Learners averaging below a competency's benchmark (0.9–3.0 scale) are flagged; the recommendation appears on every alert for it.">
         <x-slot:actions>
-            <x-button label="Re-check all learners" wire:click="recheck" spinner="recheck" icon="o-arrow-path" class="btn-outline border-2 border-ink" />
+            <x-button label="Re-check all learners" wire:click="recheck" spinner="recheck" icon="o-arrow-path" class="btn-outline" />
         </x-slot:actions>
     </x-page-header>
 
     <div class="grid gap-5 xl:grid-cols-2">
         @foreach ($competencies as $c)
-            <form wire:submit="save({{ $c->id }})" wire:key="k{{ $c->id }}" class="board">
-                <h2 class="px-5 py-2.5 font-bold text-white" style="background: {{ $c->colour }}">{{ $c->name }}</h2>
+            <form wire:submit="save({{ $c->id }})" wire:key="k{{ $c->id }}" class="panel">
+                <div class="panel-head"><h2 class="heading text-base"><x-competency :competency="$c" /></h2></div>
                 <div class="p-5 grid gap-3">
-                    <x-input label="Benchmark" type="number" step="0.25" min="1" max="3" wire:model="form.{{ $c->id }}.benchmark" class="max-w-32" />
+                    <x-input label="Benchmark" type="number" step="0.1" min="0.9" max="3" wire:model="form.{{ $c->id }}.benchmark" class="max-w-32" hint="Learners averaging below this are flagged. 1.5 = start of Moderate." />
                     <x-textarea label="What it looks like" wire:model="form.{{ $c->id }}.description" rows="2" />
                     <x-textarea label="Recommended intervention" wire:model="form.{{ $c->id }}.intervention" rows="3" />
-                    <x-button type="submit" label="Save" spinner="save({{ $c->id }})" class="btn-secondary border-2 border-ink w-fit" />
+                    <x-button type="submit" label="Save" spinner="save({{ $c->id }})" class="btn-primary w-fit" />
                 </div>
             </form>
         @endforeach

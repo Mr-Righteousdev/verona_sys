@@ -24,13 +24,15 @@ Gap detection runs when scores are saved and nightly at 18:00 (`php artisan ews:
 
 ## How detection works
 
-`app/Services/GapDetector.php`. For each learner and competency, it looks at the last 5 scores on the CBC scale (1 Basic, 2 Moderate, 3 Outstanding) and raises an alert when any of these is true:
+`app/Services/GapDetector.php`. For each learner and competency, it looks at the last 5 scores on the CBC scale 0.9–3.0 (below 1.5 Basic, 1.5–2.49 Moderate, 2.5+ Outstanding) and raises an alert when any of these is true:
 
-- the recent average is below the competency benchmark (default 2.0, editable by the admin),
-- the least-squares slope is at or below −0.3 levels per assessment (needs at least 4 scores),
-- the trend projects the next score below the benchmark while the average is still above it (the early warning).
+- the recent average is below the competency benchmark (default 1.5, editable by the admin),
+- the least-squares slope is at or below −0.25 per assessment (needs at least 4 scores),
+- the trend is declining and projects the next score below the benchmark while the average is still above it (the early warning).
 
-Attendance below 75% over 30 days adds weight to an existing alert but never raises one by itself. Severity is low, medium or high depending on how many rules fire, and is high whenever the average is below 1.5. An alert clears automatically when the learner is back on track.
+Attendance below 75% over 30 days adds weight to an existing alert but never raises one by itself.
+
+When a teacher records an intervention, the system follows it up: the alert closes as **improved** when the learner is back on track, or is **escalated** after 3 assessments without real improvement. Reports show the intervention success rate per competency, and export scores and alerts to Excel (CSV).
 
 Students never see alerts or severity. Their page shows progress and "focus areas".
 
@@ -42,4 +44,4 @@ php artisan test
 
 ## Design
 
-The design brief is in `PRODUCT.md`. The visual direction ("Kampala signwriting": every alert painted like the school's gate signboard) is recorded in `.impeccable/`. The school crest is a placeholder shield (`public/crest-placeholder.svg`); add the real one at `public/crest.png` and it replaces the placeholder automatically. The school colours are theme tokens in `resources/css/app.css`.
+The design brief is in `PRODUCT.md`. The look is calm, conventional public-service software (see `DESIGN.md`); design decisions are recorded in `.impeccable/`. The school crest is a placeholder shield (`public/crest-placeholder.svg`); add the real one at `public/crest.png` and it replaces the placeholder automatically. The school colours are theme tokens in `resources/css/app.css`.

@@ -44,16 +44,16 @@ new #[Title('Learners')] class extends Component {
     <x-page-header title="Learners" :subtitle="$students->total().' learners · those with open alerts first'" />
 
     <div class="flex flex-wrap gap-3 mb-5">
-        <x-input wire:model.live.debounce.300ms="search" placeholder="Name or admission number" icon="o-magnifying-glass" class="border-ink w-72" aria-label="Search learners" />
-        <select wire:model.live="classroomId" class="select border-ink w-40" aria-label="Class">
+        <x-input wire:model.live.debounce.300ms="search" placeholder="Name or admission number" icon="o-magnifying-glass" class="w-72" aria-label="Search learners" />
+        <select wire:model.live="classroomId" class="select w-40" aria-label="Class">
             <option value="">All classes</option>
             @foreach ($classrooms as $c)<option value="{{ $c->id }}">{{ $c->name }}</option>@endforeach
         </select>
     </div>
 
-    <div class="board overflow-x-auto" wire:loading.class="opacity-60">
+    <div class="panel overflow-x-auto" wire:loading.class="opacity-60">
         <table class="table">
-            <thead><tr class="border-b border-ink"><th>Learner</th><th class="hidden sm:table-cell">Admission no.</th><th>Class</th><th class="text-right">Open alerts</th><th class="text-right hidden md:table-cell">Attendance (30 days)</th></tr></thead>
+            <thead><tr class="border-b border-rule"><th>Learner</th><th class="hidden sm:table-cell">Admission no.</th><th>Class</th><th class="text-right">Open alerts</th><th class="text-right hidden md:table-cell">Attendance (30 days)</th></tr></thead>
             <tbody>
                 @forelse ($students as $s)
                     <tr wire:key="s{{ $s->id }}" class="border-b border-rule hover:bg-base-200">
@@ -61,7 +61,7 @@ new #[Title('Learners')] class extends Component {
                         <td class="hidden sm:table-cell">{{ $s->admission_no }}</td>
                         <td>{{ $s->classroom->name }}</td>
                         <td class="text-right">
-                            @if ($s->open_alerts_count)<span class="inline-block px-2 py-0.5 bg-ink text-white font-bold">{{ $s->open_alerts_count }}</span>@else<span class="text-muted">0</span>@endif
+                            @if ($s->open_alerts_count)<span class="tag tag-medium">{{ $s->open_alerts_count }}</span>@else<span class="text-muted">0</span>@endif
                         </td>
                         @php($rate = $s->days_count ? round($s->present_count / $s->days_count * 100) : null)
                         <td @class(['text-right hidden md:table-cell', 'font-bold underline decoration-2' => $rate !== null && $rate < 75])>{{ $rate === null ? '—' : $rate.'%' }}</td>

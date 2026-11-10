@@ -1,6 +1,9 @@
 # Verona EWS: Adaptive Early Warning System for CBC competency gaps
 
 Final-year project (St. Lawrence University, BAIT). Case study: Verona High School Mutundwe.
+
+**New here? Read [docs/GUIDE.md](docs/GUIDE.md): the full walkthrough of the project, the code and the detection engine.**
+
 Laravel 13 · Livewire 4 · Tailwind 4 · maryUI/daisyUI 5 · MariaDB/MySQL (SQLite locally).
 
 ## Run it
